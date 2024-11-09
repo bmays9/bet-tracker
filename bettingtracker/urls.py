@@ -20,7 +20,8 @@ from bet import views as bet_views
 from bank import views as bank_views
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('bet/', bet_views.my_bet, name='bet'),
     path('bank/', bank_views.my_bank, name='bank'),
-    path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
 ]
