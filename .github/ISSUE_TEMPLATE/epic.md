@@ -9,7 +9,12 @@ assignees: ''
 
 Description of the feature 
 
-User Stories
+## User Stories
 - [ ] 1
 - [ ] 2
 - [ ] 3
+
+## Acceptance Criteria
+- [ ] All linked user stories are closed
+- [ ]
+- [ ]
