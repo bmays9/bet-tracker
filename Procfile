@@ -1,1 +1,1 @@
-web: gunicorn bet-tracker.wsgi
+web: gunicorn bettingtracker.wsgi
