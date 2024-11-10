@@ -1,0 +1,32 @@
+/* 
+#000000 black
+#14213d blue
+#fca311 orange
+#e5e5e5 grey
+#000000 white
+*/
+
+.dark-bg {
+    background-color: #14213D;
+}
+
+.brand {
+    font-family: Anton, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #FCA311;
+
+}
+
+.body-padding {
+    padding-top: 66px;
+    
+}
+
+.footer {
+    border-top: solid 3px #FCA311;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+}

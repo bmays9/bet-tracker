@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Bets</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>Open Bets</h1>
+<!-- content starts here -->
+<div class="container-fluid">
+    <div class="row">
+        <h1>Open Bets</h1>
+    </div>
+    
     {% for bet in open_bets %}
     <h2>{{ bet.punter }} | £{{ bet.stake }} {{ bet.line_count }}-fold </h2>
         <ul>
@@ -22,6 +20,7 @@
         </ul>
     <h3>{{bet.status}}</p>
     {% endfor %}
-</body>
 
-</html>
+
+<!-- index.html content ends here -->
+{% endblock %}
