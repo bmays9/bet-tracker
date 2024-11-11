@@ -18,15 +18,40 @@
 
 }
 
-.body-padding {
-    padding-top: 66px;
-    
-}
 
 .footer {
     border-top: solid 3px #FCA311;
 }
 
+a {
+    text-decoration: none;
+}
 body {
     font-family: Poppins, sans-serif;
+    padding-top: 66px;
+    
+}
+
+.bet-box {
+    background-color: #f5f5f5;
+    margin-bottom: 45px;
+}
+
+.punter {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #FCA311;
+}
+
+.stake {
+    font-size: 1.1rem;
+    color: black;
+}
+
+.bet-header {
+    background-color: #D3D3D3;
+}
+
+.line-details {
+    font-size: 14px;
 }

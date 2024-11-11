@@ -3,24 +3,94 @@
 {% block content %}
 
 <!-- content starts here -->
-<div class="container-fluid">
-    <div class="row">
+
+    <div>
         <h1>Open Bets</h1>
     </div>
+
+    <!-- Container of all bets-->
+     
+    <div class="container-fluid all-bets">
+        {% for bet in open_bets %} 
+        <!-- Single Bet Box-->
+
+        <div class="row bet-box mb-3">
+            <div class="col">
+            <!-- Bet Header, wrapped in an anchor-->
+                <div class="row bet-header">
+                    <div class="col">
+                        <a data-bs-toggle="collapse" href="#collapse{{ forloop.counter }}"> 
+                        <div class="row align-items-start">
+                            <div class="col-3">
+                                <span class="punter">{{ bet.punter }} </span>
+                            </div>
+                          
+                            <div class="col">
+                                <span class="stake">£{{ bet.stake }} {{ bet.line_count }}-fold </span>
+                            </div>
+                        
+                            <div class="col-2 text-end">
+                                <span class="stake">Open</span>                            
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- End Of Bet Header-->                
+                            
+                <!-- Lines and Footer-->
+                <!--<div id="collapse{{ forloop.counter }}" class="row panel-collapse collapse">
+                    <div class="col">
+                        <ul class="list-group">
+                        {% for line in bet.lines.all %}
+                
+                        <li class="list-group-item bg-light">{{ line.home_team }} v {{ line.away_team }} | 
+                            Prediction: {{ line.prediction}} | Odds: {{ line.odds }} | {{ line.status }}</li>
+                    
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div> 
+            -->
+                <div id="collapse{{ forloop.counter }}" class="row panel-collapse {% if forloop.counter > 5 %}collapse{% endif %}">
+                    <div class="col">
+                        <ul class="list-group">
+                        {% for line in bet.lines.all %}
+                
+                        <li class="list-group-item bg-light">
+                            <div class="row line-details">
+                                <div class="col">{{ line.home_team }} v {{ line.away_team }} </div>
+                                <div class="col">Prediction: {{ line.prediction}} </div>
+                                <div class="col">Odds: {{ line.odds }} </div>
+                                <div class="col">{{ line.status }} </div>
+                            </div>    
+                                               
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div> 
     
-    {% for bet in open_bets %}
-    <h2>{{ bet.punter }} | £{{ bet.stake }} {{ bet.line_count }}-fold </h2>
-        <ul>
-        {% for line in bet.lines.all %}
-            <li>
-                {{ line.home_team }} v {{ line.away_team }} | 
-                Prediction: {{ line.prediction}} | Odds: {{ line.odds }} | {{ line.status }}
-            </li>
+                <!-- End of lines -->
+                
+                <!-- Buttons / Actions -->
+                <div class="row panel-footer list-group">
+                    <div class="col">Update  Delete 
+                    </div> 
+                </div>
+            
+                <!-- End of Actions -->
+
+            </div>
+        </div>
+    
+    
         {% endfor %}
-        </ul>
-    <h3>{{bet.status}}</p>
-    {% endfor %}
+    </div>
 
+</div>
 
+   
+
+      </div>
 <!-- index.html content ends here -->
 {% endblock %}
