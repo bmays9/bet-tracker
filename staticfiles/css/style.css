@@ -1,0 +1,57 @@
+/* 
+#000000 black
+#14213d blue
+#fca311 orange
+#e5e5e5 grey
+#000000 white
+*/
+
+.dark-bg {
+    background-color: #14213D;
+}
+
+.brand {
+    font-family: Anton, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #FCA311;
+
+}
+
+
+.footer {
+    border-top: solid 3px #FCA311;
+}
+
+a {
+    text-decoration: none;
+}
+body {
+    font-family: Poppins, sans-serif;
+    padding-top: 66px;
+    
+}
+
+.bet-box {
+    background-color: #f5f5f5;
+    margin-bottom: 45px;
+}
+
+.punter {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #FCA311;
+}
+
+.stake {
+    font-size: 1.1rem;
+    color: black;
+}
+
+.bet-header {
+    background-color: #D3D3D3;
+}
+
+.line-details {
+    font-size: 14px;
+}
