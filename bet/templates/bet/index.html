@@ -5,7 +5,8 @@
 <!-- content starts here -->
 
     <div>
-        <h1>Open Bets</h1>
+        <p><a href="{% url 'home' %}">Open Bets</a> | 
+            <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
     </div>
 
     <!-- Container of all bets-->
@@ -30,7 +31,13 @@
                             </div>
                         
                             <div class="col-2 text-end">
-                                <span class="stake">Open</span>                            
+                                {% if bet.status == 0  %}
+                                <span class="badge bg-secondary">Pending</span>
+                                {% elif bet.status == 1  %}
+                                <span class="badge bg-success">Won</span>
+                                {% elif bet.status == -1 %}
+                                <span class="badge bg-danger">Lost</span>
+                                {% endif %}
                             </div>
                         </div>
                         </a>
@@ -39,19 +46,6 @@
                 <!-- End Of Bet Header-->                
                             
                 <!-- Lines and Footer-->
-                <!--<div id="collapse{{ forloop.counter }}" class="row panel-collapse collapse">
-                    <div class="col">
-                        <ul class="list-group">
-                        {% for line in bet.lines.all %}
-                
-                        <li class="list-group-item bg-light">{{ line.home_team }} v {{ line.away_team }} | 
-                            Prediction: {{ line.prediction}} | Odds: {{ line.odds }} | {{ line.status }}</li>
-                    
-                        {% endfor %}
-                        </ul>
-                    </div>
-                </div> 
-            -->
                 <div id="collapse{{ forloop.counter }}" class="row panel-collapse {% if forloop.counter > 5 %}collapse{% endif %}">
                     <div class="col">
                         <ul class="list-group">
