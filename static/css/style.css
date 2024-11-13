@@ -6,6 +6,18 @@
 #000000 white
 */
 
+/* element styles */
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    padding-top: 66px;  
+}
+
+/* Header */
+
 .dark-bg {
     background-color: #14213D;
 }
@@ -15,21 +27,18 @@
     font-size: 1.6rem;
     font-weight: 800;
     color: #FCA311;
-
 }
 
+/* Footer */
 
 .footer {
     border-top: solid 3px #FCA311;
 }
 
-a {
-    text-decoration: none;
-}
-body {
-    font-family: Poppins, sans-serif;
-    padding-top: 66px;
-    
+/* Body styles*/
+
+.top-info-bar {
+    margin-bottom: 10px;
 }
 
 .bet-box {
@@ -46,6 +55,18 @@ body {
 .stake {
     font-size: 1.1rem;
     color: black;
+}
+
+.balance-red {
+    font-size: 1.1rem;
+    color: red;
+    font-weight:700
+}
+
+.balance-green {
+    font-size: 1.1rem;
+    color: green;
+    font-weight:700
 }
 
 .bet-header {

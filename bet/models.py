@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 import uuid
 
-# Create your models here.
 RESULT = ((0, "Pending"), (1, "Home"), (2, "Away"), (3, "Draw"))
 STATUS = ((0, "Pending"), (1, "Win"), (-1, "Lose"))
 

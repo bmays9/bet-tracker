@@ -5,9 +5,27 @@
 <!-- content starts here -->
 
     <div>
-        <p><a href="{% url 'home' %}">Open Bets</a> | 
+        <span class="text-start"><a href="{% url 'home' %}">Open Bets</a> | 
             <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
+            <span> User Balance: £ {{ user_balance }} </span>
     </div>
+    <div class="container top-info-bar">
+        <div class="row">
+          <div class="col text-start">
+            <a href="{% url 'home' %}">Open Bets</a> | 
+            <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
+          </div>
+          <div class="col">
+            <span class="money"> Balance:
+                {% if user_balance > 0 %}<span class="balance-green"
+                {% else %} <span class="balance-red"
+                {% endif %}> £ {{ user_balance }}</span>
+          </div>
+          <div class="col">
+            Your bet has been updated successfully
+          </div>
+        </div>
+      </div>
 
     <!-- Container of all bets-->
      
