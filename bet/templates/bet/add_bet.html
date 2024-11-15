@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static }
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- content starts here -->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-md-4 text-center">
+            <h2> Add a new bet</h2>
+        </div>
+    <div class="row">
+        <div class="col-12 col-md-4 text-center">
+        
+        {% if user.is_authenticated %}
+        <form id="addBet" method="post">
+            {% csrf_token %}
+             
+            {{ line_form | crispy }}
+            {{ bet_form | crispy }}
+
+
+            <button id="submitAddBet" type="submit" class="btn btn-primary">Submit</button>
+        </form>    
+        {% else %}
+        <p>Please log in to add a new bet </p>
+        
+        {% endif %}
+      
+    
+
+<!-- index.html content ends here -->
+{% endblock %}

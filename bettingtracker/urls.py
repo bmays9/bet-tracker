@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from bank import views as bank_views
+from bet import views as bet_views
 
 urlpatterns = [
+    #path('add/', include("bet.urls"), name='add'),
+    path('add/', bet_views.add_bet, name='add'),
     path('admin/', admin.site.urls),
     path('bank/', bank_views.my_bank, name='bank'),
     path('summernote/', include('django_summernote.urls')),
