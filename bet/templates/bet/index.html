@@ -4,11 +4,12 @@
 
 <!-- content starts here -->
 
-    <div>
+  <!--<div>
         <span class="text-start"><a href="{% url 'home' %}">Open Bets</a> | 
             <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
             <span> User Balance: £ {{ user_balance }} </span>
     </div>
+    -->  
     <div class="container top-info-bar">
         <div class="row">
           <div class="col text-start">
@@ -33,7 +34,7 @@
         {% for bet in open_bets %} 
         <!-- Single Bet Box-->
 
-        <div class="row bet-box mb-3">
+        <div class="row no-gutters bet-box mb-3">
             <div class="col">
             <!-- Bet Header, wrapped in an anchor-->
                 <div class="row bet-header">

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Count
+from django.contrib import messages
 from django.views import generic
 from django.views.generic import ListView
 from .models import Bet, Line 
@@ -85,27 +86,19 @@ def add_bet(request):
             bet = bet_form.save(commit=False)
             bet.punter = request.user
             bet.save()
-            
-
-            print(bet_form.cleaned_data)
-            print(line_form.cleaned_data)
-            #line.home_team = line_data['home_team']
-            #line.away_team = line_data['away_team']
-            #line.prediction = line_data['prediction']
-            #line.odds = line_data['odds']
+          
             line = line_form.save(commit=False)
-
             line.bet = bet
-            
             line.save()
-            
-            
-
-    
+                       
+            # Display message to the user
+            messages.add_message(request, messages.SUCCESS, 'Your bet has been added')
+            # Reset form
+            bet_form = BetForm()
+            line_form = LineForm()
     else: 
         bet_form = BetForm()
         line_form = LineForm()
-
     
     return render(
         request, 

@@ -26,9 +26,14 @@
 a {
     text-decoration: none;
 }
+
 body {
     font-family: Poppins, sans-serif;
     padding-top: 66px;
+        
+}
+
+.row {
     
 }
 
