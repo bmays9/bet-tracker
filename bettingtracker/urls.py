@@ -20,7 +20,7 @@ from bank import views as bank_views
 from bet import views as bet_views
 
 urlpatterns = [
-    #path('add/', include("bet.urls"), name='add'),
+    path('accounts/', include("allauth.urls")),
     path('add/', bet_views.add_bet, name='add'),
     path('admin/', admin.site.urls),
     path('bank/', bank_views.my_bank, name='bank'),
