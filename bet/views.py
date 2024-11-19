@@ -103,9 +103,25 @@ def add_bet(request):
         }
     )
 
+
+def delete_bet(request, id):
+    '''
+    View to delete comment
+    '''
+    queryset = Bet.objects.filter(status=0)
+    bet = get_object_or_404(queryset, id=id)
+    
+    if bet.punter == request.user:
+        bet.delete()
+        print("Bet delete?")
+        return redirect('home')
+    
+    return HttpResponseRedirect(reverse('bet_delete', args=[id]))
+
 def update_bet(request, id):
     """
     Display a single model: bet with all lines details so that it can be edited or updated
+    Only bets with status 'pending' can be edited
     
     template = bet/update_bet.html
     """
@@ -118,23 +134,9 @@ def update_bet(request, id):
 
     if request.method == 'POST':
 
-        print("Posting this..")
-        print("POST data:", request.POST)
-        print("EndofPOSTDATA..")
         edit_bet_form = EditBetForm(data=request.POST, instance=bet)
-        print(edit_bet_form)
         line_formset = LineFormSet(data=request.POST, instance=bet)
-        print(line_formset)
-        if not edit_bet_form.is_valid():
-            print("bet_form isnt valid")
-            print(edit_bet_form)
-
-            print(edit_bet_form.errors)
-        if not line_formset.is_valid():
-            print("line_formset isnt valid")
-            print(line_formset.errors)
-
-        
+       
         if edit_bet_form.is_valid() and line_formset.is_valid() and bet.punter == request.user:
             
             print("It's all valid")

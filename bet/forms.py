@@ -30,6 +30,6 @@ LineFormSet = inlineformset_factory(
     Bet,    # Parent Model
     Line,   # Child Model
     fields=['home_team', 'away_team','prediction','odds', 'match_result', 'status'],
-    extra=0,
+    extra=1,
     can_delete = True 
     )
