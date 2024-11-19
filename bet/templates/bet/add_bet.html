@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static }
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -22,14 +22,13 @@
             {{ bet_form | crispy }}
 
 
-            <button id="submitAddBet" type="submit" class="btn btn-primary">Submit</button>
+            <button id="submitAddBet" type="submit" class="btn btn-primary">Add Bet</button>
         </form>    
         {% else %}
         <p>Please log in to add a new bet </p>
         
         {% endif %}
       
-    
-
+   
 <!-- index.html content ends here -->
-{% endblock %}
+{% endblock content %}

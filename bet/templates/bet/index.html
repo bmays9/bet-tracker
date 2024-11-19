@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -37,7 +38,7 @@
         <div class="row no-gutters bet-box mb-3">
             <div class="col">
             <!-- Bet Header, wrapped in an anchor-->
-                <div class="row bet-header">
+                <div class="row no-gutters bet-header">
                     <div class="col">
                         <a data-bs-toggle="collapse" href="#collapse{{ forloop.counter }}"> 
                         <div class="row align-items-start">
@@ -65,13 +66,13 @@
                 <!-- End Of Bet Header-->                
                             
                 <!-- Lines and Footer-->
-                <div id="collapse{{ forloop.counter }}" class="row panel-collapse {% if forloop.counter > 5 %}collapse{% endif %}">
+                <div id="collapse{{ forloop.counter }}" class="row no-gutters panel-collapse {% if forloop.counter > 5 %}collapse{% endif %}">
                     <div class="col">
                         <ul class="list-group">
                         {% for line in bet.lines.all %}
                 
                         <li class="list-group-item bg-light">
-                            <div class="row line-details">
+                            <div class="row no-gutters line-details">
                                 <div class="col">{{ line.home_team }} v {{ line.away_team }} </div>
                                 <div class="col">Prediction: {{ line.prediction}} </div>
                                 <div class="col">Odds: {{ line.odds }} </div>
@@ -86,8 +87,21 @@
                 <!-- End of lines -->
                 
                 <!-- Buttons / Actions -->
-                <div class="row panel-footer list-group">
-                    <div class="col">Update  Delete 
+                <div class="row no-gutters panel-footer list-group">
+                    <div class="col">
+                        {% if user.is_authenticated and bet.punter == user %}
+                        
+                        <a href="{% url 'update_bet' bet.id %}" class="update-link">
+                            <button class="btn btn-edit" bet_id="{{ bet.id }}">Update</button>
+                        </a>
+                        <!--
+                        <a href="" class="">
+                             <button class="btn btn-delete" bet_id="{{ bet.id }}">Delete</button> 
+                        </a>
+                        -->
+                        
+                       {% endif %}
+                        
                     </div> 
                 </div>
             
@@ -106,4 +120,8 @@
 
       </div>
 <!-- index.html content ends here -->
+{% endblock content %}
+
+{% block additional %}
+<script src="{% static 'js/editbet.js' %}"></script>
 {% endblock %}
