@@ -21,14 +21,14 @@
             {% csrf_token %}
             {{ edit_bet_form | crispy }}
             
-            {{ line_formset.management.form }}
+            {{ line_formset.management_form }}
             {% for form in line_formset %}
             <div class="line-item">
                 {{ form | crispy }}
             </div>
             {% endfor %}
 
-            <button id="submitEditBet" type="submit" class="btn btn-primary">Save Changes</button>
+            <button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button>
         </form>    
         {% else %}
         <p>Please log in to edit your bet </p>
@@ -49,5 +49,29 @@
             {% endif %}
         {% endfor %}
    
-<!-- index.html content ends here -->
+<!-- content ends here -->
+
+<!-- Modal for edit confirmation message -->
+<div class="modal" id="updateConfModal" tabindex="-1" data-show="{% if success %}true{% else %}false{% endif %}" aria-labelledby="updateConfModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Successful</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>The changes to your bet have been saved. Click 'Close' to return to the homepage.
+
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="confirmRedirectButton" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
+
+{% block additional %}
+<script src="{% static 'js/editbet.js' %}"></script>
+{% endblock %}

@@ -1,24 +1,38 @@
-const updateButtons = document.getElementsByClassName("btn-edit");
-const submitButton = document.getElementById("submitButton");
+const updateButton = document.getElementById("submitUpdateBet");
+const confirmRedirectButton = document.getElementById("confirmRedirectButton");
+const updateConfModalElement = document.getElementById("updateConfModal");
+
+console.log("JS")
+console.log("JS Loaded");
+console.log("Submit button:", updateButton);
+console.log("Modal element:", updateConfModalElement);
+
+
+updateButton.addEventListener("click", (e) => {
+  updateConfModalElement.show();
+  console.log("Modal shown")
+   });
+  
+if (updateConfModalElement && updateConfModalElement.dataset.show === "true") {
+  console.log("Success")
+  const successModal = new bootstrap.Modal(updateConfModalElement);
+  successModal.show();
+
+  // Redirect when the user clicks the OK button
+  confirmRedirectButton.addEventListener("click", () => {
+      window.location.href = '/'; 
+  });
+}
+
 
 
 /**
-* Initializes edit functionality for the provided edit buttons.
+* Places an event listener on the save changes button on update_bet.html
 * 
-* For each button in the `editButtons` collection:
-* - Retrieves the associated bet ID upon click.
-* - Fetches the content of the corresponding bet.
-* - Populates the Bet and Line data with the necessary data.
-* - Updates the submit button's text to "Update".
-* - Sets the form's action attribute to the `edit_bet/{betId}` endpoint.
-*/
+* Displays the modal 'updateConfModal'
+* 
+***/
 
-for (let button of updateButtons) {
-    button.addEventListener("click", (e) => {
-      let betId = e.target.getAttribute("bet_id");
-      let betContent = document.getElementById(`bet${betId}`).innerText;
-      commentText.value = commentContent;
-      submitButton.innerText = "Update";
-      commentForm.setAttribute("action", `update_bet/${betId}`);
-    });
-  }
+
+
+  

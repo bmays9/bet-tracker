@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.db.models import Count
 from django.contrib import messages
 from django.views import generic
@@ -117,7 +117,10 @@ def update_bet(request, id):
     print(line_count)
 
     if request.method == 'POST':
+
         print("Posting this..")
+        print("POST data:", request.POST)
+        print("EndofPOSTDATA..")
         edit_bet_form = EditBetForm(data=request.POST, instance=bet)
         print(edit_bet_form)
         line_formset = LineFormSet(data=request.POST, instance=bet)
@@ -137,7 +140,7 @@ def update_bet(request, id):
             print("It's all valid")
             edit_bet_form.save()
             line_formset.save()
-            return redirect('home')
+            return render(request, "bet/update_bet.html", {"edit_bet_form": edit_bet_form, "line_formset": line_formset, "success": True})
         else:
             print("It's not valid")
             print(edit_bet_form.errors)
