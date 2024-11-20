@@ -11,19 +11,42 @@
         <div class="col-12 col-md-4 text-center">
             <h2> Add a new bet</h2>
         </div>
-    <div class="row">
-        <div class="col-12 col-md-4 text-center">
-        
+    </div>
+</div>
+            
         {% if user.is_authenticated %}
-        <form id="addBet" method="post">
-            {% csrf_token %}
-             
-            {{ line_form | crispy }}
-            {{ bet_form | crispy }}
-
-
-            <button id="submitAddBet" type="submit" class="btn btn-primary">Add Bet</button>
-        </form>    
+        <div class="container mt-5">
+            <form id="addBet" method="post">
+                {% csrf_token %}
+                
+                <div class="lines-container">
+                    {{ line_formset.management_form }}
+                    {% for form in line_formset %}
+                        <div class="line-form row mb-3">
+                            <div class="col-md-6 fixture">
+                                {{ form.home_team }}
+                                v
+                                {{ form.away_team }}
+                            </div>
+                            <div class="col-md-2">
+                                {{ form.prediction }}
+                            </div>
+                            <div class="col-md-4">
+                                Odds:{{ form.odds }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        
+                <div class="row">
+                    <div class="col-12">
+                        {{ bet_form | crispy }}
+                    </div>
+                </div>
+        
+                <button id="submitAddBet" type="submit" class="btn btn-primary">Add Bet</button>
+            </form>
+        </div>   
         {% else %}
         <p>Please log in to add a new bet </p>
         

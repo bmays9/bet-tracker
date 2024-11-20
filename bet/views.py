@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import ListView
 from .models import Bet, Line 
 from bank.models import Bank
-from .forms import BetForm, LineForm, EditBetForm, LineFormSet
+from .forms import BetForm, LineForm, EditBetForm, LineFormSet, LineAddFormSet
 
 # Create your views here.
 class OpenBets(ListView):
@@ -72,34 +72,34 @@ def add_bet(request):
     """ 
     if request.method == 'POST':
         bet_form = BetForm(data=request.POST)
-        line_form = LineForm(data=request.POST)
-        print("Received a post request")
+        line_formset = LineAddFormSet(data=request.POST)
         
-        if bet_form.is_valid() and line_form.is_valid():
+        if bet_form.is_valid() and line_formset.is_valid():
 
             bet = bet_form.save(commit=False)
             bet.punter = request.user
             bet.save()
-          
-            line = line_form.save(commit=False)
-            line.bet = bet
-            line.save()
+
+            line_items = line_formset.save(commit=False)
+            for line_item in line_items:
+                line_item.bet = bet
+                line_item.save()
                        
             # Display message to the user
             messages.add_message(request, messages.SUCCESS, 'Your bet has been added')
             # Reset form
             bet_form = BetForm()
-            line_form = LineForm()
+            line_formset = LineAddFormSet()
     else: 
         bet_form = BetForm()
-        line_form = LineForm()
+        line_formset = LineAddFormSet()
     
     return render(
         request, 
         'bet/add_bet.html',
         {
             'bet_form': bet_form,
-            'line_form': line_form
+            'line_formset': line_formset
         }
     )
 
