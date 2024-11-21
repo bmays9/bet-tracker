@@ -5,6 +5,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'bank' as bank_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -56,7 +57,7 @@
                             href="{% url 'add_bet' %}">Add Bet</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Money List</a>
+                <a class="nav-link {% if request.path == bank_url %}active{% endif %}" href="{% url 'bank' %}">Money List</a>
               </li>
               {% if user.is_authenticated %}
                         <li class="nav-item">

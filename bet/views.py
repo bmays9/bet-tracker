@@ -32,7 +32,7 @@ class OpenBets(ListView):
                 context['user_balance'] = user_bank.balance
             
             except Bank.DoesNotExist:
-                context['user_balance'] = None  
+                context['user_balance'] = 0.00  
         else:
             context['user_balance'] = None
         return context
@@ -142,7 +142,11 @@ def update_bet(request, id):
             print("It's all valid")
             edit_bet_form.save()
             line_formset.save()
+            #check if bet is settled
+            
+            
             return render(request, "bet/update_bet.html", {"edit_bet_form": edit_bet_form, "line_formset": line_formset, "success": True})
+
         else:
             print("It's not valid")
             print(edit_bet_form.errors)
