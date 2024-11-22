@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 import uuid
 
 RESULT = ((0, "Pending"), (1, "Home"), (2, "Away"), (3, "Draw"))
@@ -31,7 +32,11 @@ class Line(models.Model):
     home_team = models.CharField(max_length=16)
     away_team = models.CharField(max_length=16)
     prediction = models.IntegerField(choices=RESULT, default=1)
-    odds = models.DecimalField(max_digits=10, decimal_places=3)
+    odds = models.DecimalField(
+        max_digits=10, 
+        decimal_places=3, 
+        validators=[MinValueValidator(1.01)]
+    )
     match_result = models.IntegerField(choices=RESULT, default=0)
     status = models.IntegerField(choices=STATUS, default=0)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -44,3 +49,4 @@ class Line(models.Model):
 
     def __str__(self):
         return f"{self.home_team} v {self.away_team} | 102: {self.prediction}  "
+

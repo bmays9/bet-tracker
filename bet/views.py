@@ -127,10 +127,7 @@ def update_bet(request, id):
     """
     queryset = Bet.objects.filter(status=0)
     bet = get_object_or_404(queryset, id=id) 
-    print("bet object is..")
-    print (bet)
     line_count = bet.lines.count()
-    print(line_count)
 
     if request.method == 'POST':
 
@@ -139,11 +136,27 @@ def update_bet(request, id):
        
         if edit_bet_form.is_valid() and line_formset.is_valid() and bet.punter == request.user:
             
-            print("It's all valid")
             edit_bet_form.save()
             line_formset.save()
-            #check if bet is settled
             
+            #check if bet is settled
+            if bet.status != 0: # Pending, do nothing
+                print("not pending")
+                user = request.user
+                if user.is_authenticated:
+                    try:
+                        user_bank = Bank.objects.get(user=user)
+                        print("user_bank exists")
+                        print(user_bank)
+
+                    except Bank.DoesNotExist:
+                        user_bank = Bank(user=user, balance=0.00, is_active=True)
+                    
+
+                user_bank.balance = user_bank.balance + bet.settled_amount - bet.stake
+                user_bank.save()
+
+                return redirect('home')
             
             return render(request, "bet/update_bet.html", {"edit_bet_form": edit_bet_form, "line_formset": line_formset, "success": True})
 
@@ -153,6 +166,8 @@ def update_bet(request, id):
             print(line_formset.errors)
     else: 
         #populate forms with existing data
+
+
         edit_bet_form = EditBetForm(instance=bet)
         line_formset = LineFormSet(instance=bet)
         

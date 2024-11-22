@@ -20,7 +20,10 @@
         </thead>
         <tbody>
             {% for account in accounts %}
-            <tr {% if forloop.counter == 1 %} class="table-success" {% endif %}>
+            <tr 
+            {% if forloop.counter == 1 %} class="table-success" 
+            {% elif account.user == user %} class="table-primary"
+            {% endif %}>
                 <th scope="row">
                     # {{ forloop.counter }}</th>
                 <td>{{ account.user }}</td>
