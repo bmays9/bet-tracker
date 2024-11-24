@@ -1,10 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
+from django.core.exceptions import ValidationError
 import uuid
 
 RESULT = ((0, "Pending"), (1, "Home"), (2, "Away"), (3, "Draw"))
 STATUS = ((0, "Pending"), (1, "Win"), (-1, "Lose"))
+
+#Valition functions
+def positiveAmountValidator(value):
+    #Validates the amount is greater than zero. Returns True
+    if value > 0.00:
+        return True
+    else:
+        raise ValidationError("Stake amount must be greater than zero")
 
 # Create your models here.
 class Bet(models.Model):
@@ -17,7 +26,10 @@ class Bet(models.Model):
         User, on_delete=models.CASCADE, related_name="placed_by")
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    stake = models.DecimalField(max_digits=10, decimal_places=2)
+    stake = models.DecimalField(
+        max_digits=10, 
+        decimal_places=2,
+        validators=[positiveAmountValidator])
     status = models.IntegerField(choices=STATUS, default=0)
     settled_amount =  models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
@@ -35,7 +47,7 @@ class Line(models.Model):
     odds = models.DecimalField(
         max_digits=10, 
         decimal_places=3, 
-        validators=[MinValueValidator(1.01)]
+        validators=[MinValueValidator(1.00)]
     )
     match_result = models.IntegerField(choices=RESULT, default=0)
     status = models.IntegerField(choices=STATUS, default=0)

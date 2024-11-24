@@ -14,12 +14,18 @@
     </div>
 </div>
             
-        {% if user.is_authenticated %}
-        <div class="container mt-5">
-            <form id="addBet" method="post">
+{% if user.is_authenticated %}
+<div class="container mt-5">
+    <form id="addBet" method="post">
                 {% csrf_token %}
                 
-                <div class="lines-container">
+                <div class="card">
+                    <div class="card-header">
+                        <span>Enter stake below and all line information</span>
+                        {{ bet_form | crispy }}
+                    </div>
+                    <div class="card-body">
+                    
                     {{ line_formset.management_form }}
                     {% for form in line_formset %}
                         <div class="line-form row mb-3">
@@ -36,22 +42,22 @@
                             </div>
                         </div>
                     {% endfor %}
-                </div>
-        
-                <div class="row">
-                    <div class="col-12">
-                        {{ bet_form | crispy }}
                     </div>
+                    
                 </div>
+                <div class="mx-auto button-line">
+                <span class="button-line"><button id="submitAddBet" type="submit" class="btn btn-primary">Save Bet</button></span>
+                </div>
+            </div>
         
-                <button id="submitAddBet" type="submit" class="btn btn-primary">Add Bet</button>
+               
             </form>
         </div>   
         {% else %}
         <p>Please log in to add a new bet </p>
         
         {% endif %}
-      
+
    
 <!-- index.html content ends here -->
 {% endblock content %}

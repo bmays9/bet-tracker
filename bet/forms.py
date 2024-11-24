@@ -1,7 +1,8 @@
 from django import forms
-from crispy_forms.helper import FormHelper, Layout
-from crispy_forms.layout import Layout, Submit, Div, Field, Row, Column
-from django.forms import inlineformset_factory
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Field, Submit, Fieldset, Div, MultiField
+from crispy_forms.bootstrap import InlineField
+from django.forms import inlineformset_factory, formset_factory
 from .models import Bet, Line
 
 class BetForm(forms.ModelForm):
@@ -11,10 +12,12 @@ class BetForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
+        self.helper = FormHelper()
+        self.helper.form_class
         self.helper.layout = Layout(
-        Row(
-            Column('stake', css_class='col-md-4 stake-input'),
+        Fieldset(
+            'Enter stake',
+            'stake',
         ),
         )
    
@@ -22,21 +25,23 @@ class BetForm(forms.ModelForm):
 class LineForm(forms.ModelForm):
     class Meta:
         model = Line
-        fields = ('home_team', 'away_team',
-            'prediction', 'odds')
+        fields = (
+            'home_team', 
+            'away_team',
+            'prediction', 
+            'odds'
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
+        self.helper = FormHelper()
         self.helper.form_tag = False  # Disable the form tag for inline formsets
         self.helper.layout = Layout(
-            Row(
-                Column('home_team', css_class='col-md-3'),
-                Column('away_team', css_class='col-md-3'),
-            ),
-            Row(
-                Column('prediction', css_class='col-md-3'),
-                Column('odds', css_class='col-md-1'),
+            Fieldset(
+                'home_team', 
+                'away_team',
+                'prediction', 
+                'odds', 
             )
         )
 
@@ -49,16 +54,19 @@ class EditBetForm(forms.ModelForm):
         super(EditBetForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
+        
         self.helper.add_input(Submit('submit', 'Save Changes'))
 
+# LineFormSet used when updating a bet. match_result and status are available.
 LineFormSet = inlineformset_factory(
     Bet,    # Parent Model
     Line,   # Child Model
     fields=['home_team', 'away_team','prediction','odds', 'match_result', 'status'],
-    extra=1,
+    extra=0,
     can_delete = True 
     )
 
+# LineAddFormSet used when addint a bet. 6 lines available
 LineAddFormSet = inlineformset_factory(
     Bet,    # Parent Model
     Line,   # Child Model
@@ -66,3 +74,19 @@ LineAddFormSet = inlineformset_factory(
     extra=6,
     can_delete = True
     )
+
+class LineAddFormSetHelper(FormHelper):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.form_method = 'post'
+        self.layout = Layout(
+            Fieldset(
+                'Add data for each line',
+                'home_team', 
+                'away_team',
+                'prediction',
+                'odds',
+                css_id = 'line-fields'
+            ),
+            )
+        self.render_required_fields = True

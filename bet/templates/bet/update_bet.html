@@ -2,39 +2,50 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+
 {% block content %}
 
 <!-- content starts here -->
 
 <div class="container mt-5">
     <div class="row">
-        <div class="text-center">
+        <div class="col-12 col-md-4 text-center">
             <h2> Update bet</h2>
         </div>
-    <div class="row">
-        <div class="col-12 col-md-12 text-center">
+    </div>
+</div> 
         
-        {% if user.is_authenticated %}
-        <form id="updateBet" method="post">
-            {% csrf_token %}
-            {{ edit_bet_form | crispy }}
-            
-            {{ line_formset.management_form }}
-            {% for form in line_formset %}
-            <div class="line-item">
-                {{ form | crispy }}
-            </div>
-            {% endfor %}
+{% if user.is_authenticated %}
+<div class="container mt-5">
+    <form id="updateBet" method="post">
+        {% csrf_token %}
 
-            <button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button>
-        </form>    
-        {% else %}
-        <p>Please log in to edit your bet </p>
+        <div class="card">
+          <div class="card-header">
+
+        {{ edit_bet_form | crispy }}
+
+          </div>
+        </div>
+<!--
+        {{ line_formset.management_form }}
+        {% for form in line_formset %}
+        <div class="card-body">
+            <div class="line-item">
+            {{ form | crispy }}
+            </div>
+        </div>
+        {% endfor %}
+
+        <button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button>
+    </form>    
+{% else %}
+    <p>Please log in to edit your bet </p>
         
-        {% endif %}
+{% endif %}
         
-        {% if edit_bet_form.errors %}
-        <div class="errors">
+{% if edit_bet_form.errors %}
+       <div class="errors">
             {{ edit_bet_form.errors }}
         </div>
         {% endif %}
@@ -46,8 +57,64 @@
             </div>
             {% endif %}
         {% endfor %}
-   
+          -->   
 <!-- content ends here -->
+
+<!-- Single Bet Box-->
+ <!--
+<div class="row no-gutters bet-box mb-3">
+  <div class="col">
+  -->
+     <!-- Bet Header, wrapped in an anchor-->
+<!--
+     <div class="row no-gutters bet-header">
+        <div class="col">
+            <div class="row align-items-start">
+                 <div class="col-3">
+                    <span class="punter"> </span>
+                 </div>
+                 <div class="col">
+                    <span class="stake">£{{ edit_bet_form.stake }} </span>
+                 </div>
+                 <div class="col-2 text-end">
+                    {% if bet.status == 0  %}
+                    <span class="badge bg-secondary">Pending</span>
+                    {% elif bet.status == 1  %}
+                    <span class="badge bg-success">Won</span>
+                    {% elif bet.status == -1 %}
+                    <span class="badge bg-danger">Lost</span>
+                    {% endif %}
+                 </div>
+              </div>
+        </div>
+     </div>
+    -->
+     <!-- End Of Bet Header-->  
+                
+     <!-- Lines and Footer-->
+     <div id="collapse{{ forloop.counter }}" class="row no-gutters panel-collapse {% if forloop.counter > 5 %}collapse{% endif %}">
+        <div class="col">
+           <ul class="list-group">
+            {{ line_formset.management_form }}
+            {% for form in line_formset %}
+              <li class="list-group-item bg-light">
+                 <div class="row no-gutters line-details">
+                    <div class="col-md-6 fixture">Fixture: {{ form.home_team }} v {{ form.away_team }} </div>
+                    <div class="col-md-2">Prediction: {{ form.prediction}} </div>
+                    <div class="col-md-2">Odds: {{ form.odds }} </div>
+                    <div class="col-md-2 result">Result: {{ form.match_result }} </div>
+                 </div>
+                 {% endfor %}
+           </ul>
+        </div>
+    </div>
+  </div>
+  <div class="mx-auto button-line">
+  <span><button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button></span>
+  </div>
+    
+    
+    <!-- End of lines -->
 
 <!-- Modal for edit confirmation message -->
 <div class="modal" id="updateConfModal" tabindex="-1" data-show="{% if success %}true{% else %}false{% endif %}" aria-labelledby="updateConfModalLabel" aria-hidden="true">
