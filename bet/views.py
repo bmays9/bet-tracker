@@ -35,7 +35,7 @@ class OpenBets(ListView):
             except Bank.DoesNotExist:
                 context['user_balance'] = 0.00  
         else:
-            context['user_balance'] = None
+            context['user_balance'] = ""
         return context
 
 class SettledBets(ListView):

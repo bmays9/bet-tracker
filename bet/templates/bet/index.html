@@ -2,14 +2,13 @@
 {% load static %}
 {% block content %}
 <!-- content starts here -->
-
 <div class="container top-info-bar">
    <div class="row">
-      <div class="col text-start">
+      <div class="col text-start my-3">
          <a href="{% url 'home' %}">Open Bets</a> | 
          <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
       </div>
-      <div class="col">
+      <div class="col my-3 offset-md-3">
          <span class="money"> Balance:
          {% if user_balance > 0 %}<span class="balance-green"
          {% else %} <span class="balance-red"
