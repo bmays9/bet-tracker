@@ -15,6 +15,13 @@ def positiveAmountValidator(value):
     else:
         raise ValidationError("Stake amount must be greater than zero")
 
+def settledAmountValidator(value):
+    #Validates the amount is greater than or equal to zero. Returns True
+    if value >= 0.00:
+        return True
+    else:
+        raise ValidationError("Settled amount must be greater than or equal to zero")
+
 # Create your models here.
 class Bet(models.Model):
     
@@ -31,7 +38,11 @@ class Bet(models.Model):
         decimal_places=2,
         validators=[positiveAmountValidator])
     status = models.IntegerField(choices=STATUS, default=0)
-    settled_amount =  models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    settled_amount =  models.DecimalField(
+        max_digits=10, 
+        decimal_places=2, 
+        default=0,
+        validators=[settledAmountValidator])
 
     class Meta:
         ordering = ["-created_on"]

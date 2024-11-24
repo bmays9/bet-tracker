@@ -48,7 +48,11 @@ class LineForm(forms.ModelForm):
 class EditBetForm(forms.ModelForm):
     class Meta:
         model = Bet
-        fields = ('stake', 'status', 'settled_amount')
+        fields = (
+            'stake', 
+            'status', 
+            'settled_amount'
+        )
 
     def __init__(self, *args, **kwargs):
         super(EditBetForm, self).__init__(*args, **kwargs)
