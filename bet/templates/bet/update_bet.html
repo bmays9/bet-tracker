@@ -17,27 +17,38 @@
         
 {% if user.is_authenticated %}
 <div class="container mt-5">
-    <form id="updateBet" method="post">
+    <div class="row">
+      <div class="col">
+        <form id="updateBet" method="post">
         {% csrf_token %}
 
         <div class="card">
           <div class="card-header">
-
-        {{ edit_bet_form | crispy }}
-
+             {{ edit_bet_form | crispy }}
           </div>
         </div>
-<!--
-        {{ line_formset.management_form }}
-        {% for form in line_formset %}
+
+
         <div class="card-body">
+          {{ line_formset.management_form }}
+          {% for form in line_formset %}
             <div class="line-item">
             {{ form | crispy }}
             </div>
         </div>
         {% endfor %}
-
-        <button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button>
+        <div class="row align-items-center my-2">
+          <div class="col text-center">
+            <p id="settleBetWarning"><b>Bet status is pending</b></p>
+            <p id="updateBetInfo">Save changes now to update your bet and return to the home screen.</p>
+          </div>
+        </div>
+            <div class="row align-items-center mb-5">
+          <div class="col text-center">
+            <span><button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button></span>
+            <span><button id="submitSettleBet" type="submit" class="btn btn-primary" disabled>Settle & Close Bet</button></span>
+          </div>
+        </div>
     </form>    
 {% else %}
     <p>Please log in to edit your bet </p>
@@ -57,63 +68,13 @@
             </div>
             {% endif %}
         {% endfor %}
-          -->   
+   
 <!-- content ends here -->
 
-<!-- Single Bet Box-->
- <!--
-<div class="row no-gutters bet-box mb-3">
-  <div class="col">
-  -->
-     <!-- Bet Header, wrapped in an anchor-->
-<!--
-     <div class="row no-gutters bet-header">
-        <div class="col">
-            <div class="row align-items-start">
-                 <div class="col-3">
-                    <span class="punter"> </span>
-                 </div>
-                 <div class="col">
-                    <span class="stake">£{{ edit_bet_form.stake }} </span>
-                 </div>
-                 <div class="col-2 text-end">
-                    {% if bet.status == 0  %}
-                    <span class="badge bg-secondary">Pending</span>
-                    {% elif bet.status == 1  %}
-                    <span class="badge bg-success">Won</span>
-                    {% elif bet.status == -1 %}
-                    <span class="badge bg-danger">Lost</span>
-                    {% endif %}
-                 </div>
-              </div>
-        </div>
-     </div>
-    -->
-     <!-- End Of Bet Header-->  
-                
-     <!-- Lines and Footer-->
-     <div id="collapse{{ forloop.counter }}" class="row no-gutters panel-collapse {% if forloop.counter > 5 %}collapse{% endif %}">
-        <div class="col">
-           <ul class="list-group">
-            {{ line_formset.management_form }}
-            {% for form in line_formset %}
-              <li class="list-group-item bg-light">
-                 <div class="row no-gutters line-details">
-                    <div class="col-md-6 fixture">Fixture: {{ form.home_team }} v {{ form.away_team }} </div>
-                    <div class="col-md-2">Prediction: {{ form.prediction}} </div>
-                    <div class="col-md-2">Odds: {{ form.odds }} </div>
-                    <div class="col-md-2 result">Result: {{ form.match_result }} </div>
-                 </div>
-                 {% endfor %}
-           </ul>
-        </div>
-    </div>
-  </div>
-  <div class="mx-auto button-line">
-  <span><button id="submitUpdateBet" type="submit" class="btn btn-primary">Save Changes</button></span>
-  </div>
+
+   
     
-    
+</form>
     <!-- End of lines -->
 
 <!-- Modal for edit confirmation message -->
@@ -135,6 +96,22 @@
       </div>
     </div>
   </div>
+  <div class="modal" id="settledBetModal" tabindex="-1" data-showSettle="{% if success %}true{% else %}false{% endif %}" aria-labelledby="settledBetModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Settled Bet!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Your bet has been settled and your balance has been updated. Close to return to the homepage</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 {% endblock content %}
 
 {% block additional %}

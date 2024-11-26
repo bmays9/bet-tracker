@@ -280,4 +280,14 @@ class TestEditBetForm(TestCase):
             'settled_amount': '-2.04',
             'status': '1',
             })
-        self.assertFalse(editbet_form.is_valid(), msg='Test fail. EditBetForm with negative settled amount is valid') 
+        self.assertFalse(editbet_form.is_valid(), msg='Test fail. EditBetForm with empty settled amount is valid') 
+
+    def test_editbetform_with_invalid_settled_amount(self):
+        editbet_form = EditBetForm({
+            'stake': '10.00',
+            'user': 'Tester1',
+            'settled_amount': '123456789.01',
+            'status': '1',
+            })
+        self.assertFalse(editbet_form.is_valid(), msg='Test fail. EditBetForm with too long settled amount is valid') 
+

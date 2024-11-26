@@ -87,11 +87,15 @@ def add_bet(request):
                 line_item.save()
                        
             # Display message to the user
-            messages.add_message(request, messages.SUCCESS, 'Your bet has been added')
+            messages.add_message(
+                request, 
+                messages.SUCCESS, 
+                'SUCCESS! Your bet has been added. Either add another bet or return to the home page')
             # Reset form
             bet_form = BetForm()
             line_formset = LineAddFormSet()
-    else: 
+    
+    else:  #Not a Post request
         bet_form = BetForm()
         line_formset = LineAddFormSet()
             
@@ -107,7 +111,20 @@ def add_bet(request):
 
 def delete_bet(request, id):
     '''
-    View to delete comment
+    View to delete bet
+    '''
+    queryset = Bet.objects.filter(status=0)
+    bet = get_object_or_404(queryset, id=id)
+    
+    if bet.punter == request.user:
+        bet.delete()
+        return redirect('home')
+    
+    return HttpResponseRedirect(reverse('bet_delete', args=[id]))
+
+def settle_bet(request, id):
+    '''
+    View to settle bet
     '''
     queryset = Bet.objects.filter(status=0)
     bet = get_object_or_404(queryset, id=id)
@@ -129,53 +146,55 @@ def update_bet(request, id):
     queryset = Bet.objects.filter(status=0)
     bet = get_object_or_404(queryset, id=id) 
     line_count = bet.lines.count()
+    print(bet)
 
     if request.method == 'POST':
-
+        
         edit_bet_form = EditBetForm(data=request.POST, instance=bet)
         line_formset = LineFormSet(data=request.POST, instance=bet)
-       
-        if edit_bet_form.is_valid() and line_formset.is_valid() and bet.punter == request.user:
-            
-            #check if any lines are still pending
-            linesClosed = checkLines(line_formset)
-            print("linesClosed")
-            print(linesClosed)
-            
-            #check if bet is settled
-            if bet.status != 0: # If pending, do nothing
+        user = request.user
+        #check user is authenticated
+        print("Post Request")
+        if user.is_authenticated: 
+            print("User Authenticated")
+            #check forms are valid
+            if edit_bet_form.is_valid() and line_formset.is_valid() and bet.punter == user:
+                print("Forms are valid")
                 
-                user = request.user
-                if linesClosed:
-                    if user.is_authenticated:
-                        try:
-                            user_bank = Bank.objects.get(user=user)
-                        except Bank.DoesNotExist:
-                            user_bank = Bank(user=user, balance=0.00, is_active=True)
+                #check if bet is settled
+                if bet.status != 0: # If status is not pending, adjust bank balance
+                    print("Bet is not pending")
+                    try:
+                        user_bank = Bank.objects.get(user=user)
+                    except Bank.DoesNotExist:
+                        user_bank = Bank(user=user, balance=0.00, is_active=True)
                                
                     #update user's bank balance    
                     user_bank.balance = user_bank.balance + bet.settled_amount - bet.stake
                     user_bank.save()
+                    edit_bet_form.save()
+                    line_formset.save()
+
+                    return redirect('home')
+                           
                 else:
-                    # Display message to the user
-                    messages.add_message(request, messages.SUCCESS, 'Your changes have been saved. Not all lines have a result, so the bet is still pending')
-                    bet.status = 0
-                edit_bet_form.save()
-                line_formset.save()
+                    # Bet is still pending but form is valid.
+                    # Save data and send message to the user
+                    print("Bet is pending")
+                    edit_bet_form.save()
+                    line_formset.save()
+                    messages.add_message(request, messages.SUCCESS, 'Your changes have been saved. The bet is still pending so your balance is unchanged')
+                        
+                    return render(request, "bet/update_bet.html", {"edit_bet_form": edit_bet_form, "line_formset": line_formset, "success": True})
 
-                return redirect('home')
-
-            
-            
-            return render(request, "bet/update_bet.html", {"edit_bet_form": edit_bet_form, "line_formset": line_formset, "success": True})
-
-        else:
-            print("It's not valid")
-            print(edit_bet_form.errors)
-            print(line_formset.errors)
+            else:
+                messages.add_message(request, messages.SUCCESS, 'The data is invalid, please correct it and try again')
+                print("Invalid form data")
+                print(edit_bet_form.errors)
+                print(line_formset.errors)
+    
     else: 
         #populate forms with existing data
-
 
         edit_bet_form = EditBetForm(instance=bet)
         line_formset = LineFormSet(instance=bet)
@@ -190,10 +209,11 @@ def update_bet(request, id):
         })
         
    
-def checkLines(form):
-    ## Checks the status of all lines, and returns false if any are pending.
-    ## Returns True if all are closed.
-    for line in form:
-        if line.status == 'Pending':
-            return False
-    return True
+#def checkLines(form):
+#    ## Checks the status of all lines, and returns false if any are pending.
+#    ## Returns True if all are closed.
+#    print("CHecking Line Status now..")
+#    for line in form:
+#        if line.status == 'Pending':
+#            return False
+#    return True
