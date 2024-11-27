@@ -50,18 +50,25 @@ betStatusElement.addEventListener("change", (e) => {
     } else if (betStatus == '1') {
         /* Bet status is win */
         console.log("WINNER");
+        if (parseFloat(settledAmount) <>> parseFloat(stakeAmount)) {
+            updateButton.disabled = true;
+            settleButton.disabled = true;
+            settleBetWarning.textContent = "This cannot be a winning bet. Settled amount is lower than the stake.";  
+            updateBetInfo.textContent = "To continue, please change the bet status to Lose, or increase the settled amount.";
+        } else {
         updateButton.disabled = true;
         settleButton.disabled = false;
         settleBetWarning.textContent = "Please check all bet lines are correct. No changes are possible once the bet is closed.";
         updateBetInfo.textContent = "Saving now will settle the bet as a WINNER, with a return of £" + settledAmount;
+        }
     } else {
         /* Bet status is lose */
         if (parseFloat(settledAmount) > parseFloat(stakeAmount)) {
-            settleBetWarning.textContent = "This cannot be a losing bet. Settled amount is greater than the stake.";  
-            updateBetInfo.textContent = "To continue, please change the bet status to Win, or reduce the settled amount.";
-           
             updateButton.disabled = true;
             settleButton.disabled = true;
+            settleBetWarning.textContent = "This cannot be a losing bet. Settled amount is greater than the stake.";  
+            updateBetInfo.textContent = "To continue, please change the bet status to Win, or reduce the settled amount.";
+
         
         } else {
             updateButton.disabled = true;

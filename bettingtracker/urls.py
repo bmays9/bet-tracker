@@ -24,6 +24,7 @@ urlpatterns = [
     path('add/', bet_views.add_bet, name='add'),
     path('admin/', admin.site.urls),
     path('bank/', bank_views.bank_list.as_view(), name='bank'),
+    path('bets/', include("bet.urls"), name='bet-urls'),
     path('summernote/', include('django_summernote.urls')),
-    path('', include("bet.urls"), name='bet-urls'),
+    path('', bet_views.homepage, name='home'),
 ]

@@ -16,7 +16,7 @@ class OpenBets(ListView):
     """ 
          
     # queryset = Bet.objects.filter(status=0).order_by("updated_on")
-    template_name = "bet/index.html"
+    template_name = "bet/bets.html"
     context_object_name = 'open_bets'
         
     def get_queryset(self):
@@ -44,7 +44,7 @@ class SettledBets(ListView):
     """ 
          
     # queryset = Bet.objects.filter(status=0).order_by("updated_on")
-    template_name = "bet/index.html"
+    template_name = "bet/bets.html"
     context_object_name = 'open_bets'
         
     def get_queryset(self):
@@ -146,7 +146,6 @@ def update_bet(request, id):
     queryset = Bet.objects.filter(status=0)
     bet = get_object_or_404(queryset, id=id) 
     line_count = bet.lines.count()
-    print(bet)
 
     if request.method == 'POST':
         
@@ -209,11 +208,5 @@ def update_bet(request, id):
         })
         
    
-#def checkLines(form):
-#    ## Checks the status of all lines, and returns false if any are pending.
-#    ## Returns True if all are closed.
-#    print("CHecking Line Status now..")
-#    for line in form:
-#        if line.status == 'Pending':
-#            return False
-#    return True
+def homepage(request):
+    return render(request, 'bet/index.html')
