@@ -133,7 +133,11 @@ There is Javascript validation to check the status of the bet correctly reflects
 **Delete Bet**
 
 **View Bets**
-All open bets are 
+All open bets are displayed on this page. This includes bets placed by the user, and other users on the site. The username of the bettor is clearly displayed in the bet header. The bets are ordered by their modified data to keep the new additions and the newly modified as the most prominent at the top.
+To keep the page from being too busy on the eye, I have implemented a accordion element for each bet so that the individual line detail can be hidden or displayed. The top five bets on the page are expanded by default - the rest are collapsed.
+From this page, a user is presented with two buttons for each of their bets - Update and Delete. This is part of the CRUD functionality solution to allow a user to update or delete their bets. 
+At the top of the page, the user's current bank balance is permanently displayed so there is no action for the user to search for it.
+
 
 
 **Money List**
@@ -142,6 +146,7 @@ The money list page presents the user with an ordered list of all user's bank ba
 ## Technologies
 
 ## Testing
+All testing information is documented in TESTING.md
 
 ## Deployment
 
@@ -169,3 +174,4 @@ The money list page presents the user with an ordered list of all user's bank ba
 
 ## References
 
+## Credits
