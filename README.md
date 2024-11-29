@@ -69,7 +69,7 @@ THe money list page allows users to see the ranking of their account balance com
 
 **Header and Navigation**
 
-The header and navigtaion bar are contained within the base template so that all pages on the site inherit the same design. The Bet Tracker brand name is an anchor tag which brings the user back to the home page whenever clicked.
+The header and navigation bar are contained within the base template so that all pages on the site inherit the same design. The Bet Tracker brand name is an anchor tag which brings the user back to the home page whenever clicked.
 The Navigation bar contains links to the "View Bets", "Add Bet", "Money List", "Login", "Logout" and "Register".
 On smaller screens, the navigation bar condenses into a hamburger button, which when pressed, displays the navigation options vertically. 
 The links have an active class assigned to them, styling the active-page link differently so the user always knows where within the site they are.
@@ -79,7 +79,7 @@ At the right hand side of the header is a statement confirming the username of t
 <details>
 <summary>Click to view screenshots of Navigation</summary>
 </summary>
-<details>
+</details>
 
 **Footer**
 Featured on all pages as part of the base template, the footer contains information about me as the site creator and provides a way to get in contact. Links to my email and to my github page are both included.
