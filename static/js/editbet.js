@@ -50,7 +50,7 @@ betStatusElement.addEventListener("change", (e) => {
     } else if (betStatus == '1') {
         /* Bet status is win */
         console.log("WINNER");
-        if (parseFloat(settledAmount) <>> parseFloat(stakeAmount)) {
+        if (parseFloat(settledAmount) < parseFloat(stakeAmount)) {
             updateButton.disabled = true;
             settleButton.disabled = true;
             settleBetWarning.textContent = "This cannot be a winning bet. Settled amount is lower than the stake.";  
@@ -89,7 +89,7 @@ if (updateConfModalElement && updateConfModalElement.dataset.show === "true") {
 
     // Redirect when the user clicks the OK button
     confirmRedirectButton.addEventListener("click", () => {
-        window.location.href = '/';
+        window.location.href = '/bets/';
     });
 }
 
@@ -103,6 +103,6 @@ if (settledBetModalElement && settledBetModalElement.dataset.showSettle === "tru
 
     // Redirect when the user clicks the OK button
     confirmRedirectButton.addEventListener("click", () => {
-        window.location.href = '/';
+        window.location.href = '/bets/';
     });
 }

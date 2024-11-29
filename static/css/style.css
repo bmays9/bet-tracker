@@ -29,6 +29,16 @@ body {
     color: #FCA311;
 }
 
+.info-card-header {
+    background-color: #14213D;
+    color: #FCA311;
+}
+
+.info-card-header-rev {
+    background-color: #FCA311;
+    color: #14213D;
+}
+
 /* Footer */
 
 .footer {

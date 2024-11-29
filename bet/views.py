@@ -118,7 +118,7 @@ def delete_bet(request, id):
     
     if bet.punter == request.user:
         bet.delete()
-        return redirect('home')
+        return redirect('bets')
     
     return HttpResponseRedirect(reverse('bet_delete', args=[id]))
 
@@ -131,7 +131,7 @@ def settle_bet(request, id):
     
     if bet.punter == request.user:
         bet.delete()
-        return redirect('home')
+        return redirect('bets')
     
     return HttpResponseRedirect(reverse('bet_delete', args=[id]))
 
@@ -174,7 +174,7 @@ def update_bet(request, id):
                     edit_bet_form.save()
                     line_formset.save()
 
-                    return redirect('home')
+                    return redirect('bets')
                            
                 else:
                     # Bet is still pending but form is valid.
