@@ -7,7 +7,7 @@
 
 <!-- content starts here -->
 
-<div class="container mt-5">
+<div class="container mt-4">
     <div class="row">
         <div class="col-12 col-md-4 text-center">
             <h2> Update bet</h2>
@@ -34,7 +34,11 @@
           {% for form in line_formset %}
             <div class="line-item">
             {{ form | crispy }}
+         
             </div>
+            {% if not forloop.last %}
+            <hr class="form-divider">
+            {% endif %}
         </div>
         {% endfor %}
         <div class="row align-items-center my-2">

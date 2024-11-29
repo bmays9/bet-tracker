@@ -8,6 +8,7 @@ from .models import Bet, Line
 from bank.models import Bank
 from .forms import BetForm, LineForm, EditBetForm, LineFormSet
 from .forms import LineAddFormSet, LineAddFormSetHelper
+from decimal import Decimal
 
 # Create your views here.
 class OpenBets(ListView):
@@ -61,9 +62,9 @@ class SettledBets(ListView):
                 context['user_balance'] = user_bank.balance
             
             except Bank.DoesNotExist:
-                context['user_balance'] = None  
+                context['user_balance'] = 0.00  
         else:
-            context['user_balance'] = None
+            context['user_balance'] = ""
         return context
 
 
@@ -166,9 +167,15 @@ def update_bet(request, id):
                     try:
                         user_bank = Bank.objects.get(user=user)
                     except Bank.DoesNotExist:
-                        user_bank = Bank(user=user, balance=0.00, is_active=True)
+                        user_bank = Bank(user=user, balance=Decimal(0.00), is_active=True)
                                
                     #update user's bank balance    
+                    print("users BB")
+                    print(user_bank.balance)
+                    print("settled amount")
+                    print(bet.settled_amount)
+                    print("stakeB")
+                    print(bet.stake)
                     user_bank.balance = user_bank.balance + bet.settled_amount - bet.stake
                     user_bank.save()
                     edit_bet_form.save()

@@ -4,11 +4,11 @@
 <!-- content starts here -->
 <div class="container top-info-bar">
    <div class="row">
-      <div class="col-12 col-md-10 col-lg-10 text-start my-3">
+      <div class="col-6 col-md-8 col-lg-8 text-center my-3">
          <a href="{% url 'bets' %}">Open Bets</a> | 
          <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
       </div>
-      <div class="col my-3 offset-md-3">
+      <div class="col-6 col-md-4 col-lg-4 my-3 offset-md-3>
          <span class="money"> Balance:
          {% if user_balance > 0 %}<span class="balance-green"
          {% else %} <span class="balance-red"
@@ -19,12 +19,12 @@
 <!-- Container of all bets-->
 <div class="container-fluid all-bets">
 
-<div class="container py-5">
+<div class="container pb-5">
    <div class="row justify-content-center">
       <div class="col-12 col-md-10 col-lg-10">
    {% for bet in open_bets %} 
    <!-- Single Bet Box-->
-   <div class="row no-gutters bet-box mb-3">
+   <div class="row no-gutters bet-box mb-4">
       <div class="col">
          <!-- Bet Header, wrapped in an anchor-->
          <div class="row no-gutters bet-header">
