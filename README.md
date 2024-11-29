@@ -1,131 +1,117 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Bet Tracker
 
-Welcome Barry Mays,
+Bet Tracker is a full-stack, responsive website built for football supports who enjoy betting on matches. The site is for bet tracking purposes only and all monetary amounts on the site are for documentation purposes only. 
+<br>
+It provides users with the opportunity to share their upcoming bets with the website community, and see how their results fare against other like-minded bettors. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+View the live website [here][https://track-my-bets-1ee4e00d237a.herokuapp.com/]
+____
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Overview
 
-## Gitpod Reminders
+Bet Tracker is a responsive website compatible with all current major browers. It is built for educational purposes using Bootstarp and the Django Framework. It consists of user authentication and permission logic, with full CRUD functionality on bets entered on the site. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The site is aimed at betting and football enthusiasts who want to add an extra element to their betting by sharing and comparing with others. Part of responsible gambling is to keep a track of all betting, successful or not, and this site helps to achieve this 
 
-`python3 -m http.server`
+## User Expectations
 
-A blue button should appear to click: _Make Public_,
+- The app should be easy to navigate and all betting information displayed intelligently.
+- The user should be able to create, read, update and delete any football bets they want to track.
+- The user should be able to compare their betting success with other users.
+- The user should be able to view bets places by other users on the site.
+- The app should be fully tested and run without bugs.
 
-Another blue button should appear to click: _Open Browser_.
+## Agile Methodology
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Wireframes
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## Website Structure
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Homepage
+The homepage welcomes users to the site and gives them a clear overview of the sites purpose. For visitors unfamiliar with betting, a clear description of football betting and how odds work is provided.
 
-To log into the Heroku toolbelt CLI:
+### View Bets
+The View Bets page gives users a complete one-page view of all bets on the site. Bets are split into categories, "Open" and "Settled". Open bets are for upcoming matches and users are sharing their bets and predictions with each other. Users can gain insight and inspiration by knowing how other successful bettors are thinking about a certain match. The "Settled Bet" list is a historical record of all bets that have been settled.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### Add a Bet
+An logged in user can add a new bet to the site at any time. The site allows up to 6 matches (lines) to be combined into a single bet.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+### Update a Bet
+While a bet is still open, the user can edit all details their bet. This can either be to correct a mistake, remove a cancelled fixture, or to enter the match result and update the bet status after the match(es) has been played.
 
-### Connecting your Mongo database
+### Money List
+THe money list page allows users to see the ranking of their account balance compared to other users on the site. 
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+## Administration
 
-------
+## Database structure
 
-## Release History
+<table>
+<thead>
+  <tr>
+    <th>Field Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Styling
 
-**June 18, 2024,** Add Mongo back into template
+## Features
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+**Header and Navigation**
 
-**May 28 2024:** Fix Mongo and Links installs
+The header and navigtaion bar are contained within the base template so that all pages on the site inherit the same design. The Bet Tracker brand name is an anchor tag which brings the user back to the home page whenever clicked.
+The Navigation bar contains links to the "View Bets", "Add Bet", "Money List", "Login", "Logout" and "Register".
+On smaller screens, the navigation bar condenses into a hamburger button, which when pressed, displays the navigation options vertically. 
+The links have an active class assigned to them, styling the active-page link differently so the user always knows where within the site they are.
+The links for "Registration", "Login" and "Logout are displayed dynamically and respond to the status of the current user. 
+At the right hand side of the header is a statement confirming the username of the user currently logged in. This is visible on every page to rassure the user they are both logged in, and under which account.
 
-**April 26 2024:** Update node version to 16
+<details>
+<summary>Click to view screenshots of Navigation</summary>
+</summary>
+<details>
 
-**September 20 2023:** Update Python version to 3.9.17.
+**Footer**
+Featured on all pages as part of the base template, the footer contains information about me, the site creator and provides a way to get in contact.
+By is styled in a minimalistic way to present the information clearly.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Technologies
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Testing
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Deployment
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### How to clone the project
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+1. Log into Github
+2. Go to the project repository at (https://github.com/bmays9/bet-tracker)
+3. Click on the Code button and copy your preferred link.
+4. Open the terminal in your code editor and change the working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal, paste the link you copied and hit enter.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### How to fork the repository
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+1. Login to Github.
+2. Go to the project repository at (https://github.com/bmays9/bet-tracker)
+3. Click the 'Fork' button.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Bugs
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
+## References
 
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
