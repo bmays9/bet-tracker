@@ -1,11 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
-
 {% block content %}
-
 <!-- content starts here -->
-
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 col-md-4 text-center">
@@ -13,67 +10,59 @@
         </div>
     </div>
 </div>
-            
 {% if user.is_authenticated %}
 <div class="container mt-3">
     <form id="addBet" method="post">
-                {% csrf_token %}
-                
-                <div class="card">
-                    <div class="card-header">
-                        <span>Enter the stake amount in £.</span>
-                        {{ bet_form | crispy }}
+        {% csrf_token %}
+        <div class="card">
+            <div class="card-header">
+                <span>Enter the stake amount in £.</span>
+                {{ bet_form | crispy }}
+            </div>
+            <div class="card-body">
+                <!-- Add headers for the form fields -->
+                <div class="row mb-3">
+                    <div class="col-md-6 fixture-header">
+                        <strong>Match Fixture: (Home v Away)</strong>
                     </div>
-                    <div class="card-body">
-                                <!-- Add headers for the form fields -->
-        <div class="row mb-3">
-            <div class="col-md-6 fixture-header">
-                <strong>Match Fixture: (Home v Away)</strong>
-            </div>
-            <div class="col-md-2">
-                <strong>Prediction</strong>
-            </div>
-            <div class="col-md-4">
-                <strong>Odds</strong>
+                    <div class="col-md-2">
+                        <strong>Prediction</strong>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Odds</strong>
+                    </div>
+                </div>
+                {{ line_formset.management_form }}
+                {% for form in line_formset %}
+                <div class="line-form row mb-3">
+                    <div class="col-md-6 fixture">
+                        {{ form.home_team }}
+                        v
+                        {{ form.away_team }}
+                    </div>
+                    <div class="col-md-2">
+                        {{ form.prediction }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.odds }}
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
-                    
-                    {{ line_formset.management_form }}
-                    {% for form in line_formset %}
-                        <div class="line-form row mb-3">
-                            <div class="col-md-6 fixture">
-                                {{ form.home_team }}
-                                v
-                                {{ form.away_team }}
-                            </div>
-                            <div class="col-md-2">
-                                {{ form.prediction }}
-                            </div>
-                            <div class="col-md-4">
-                                {{ form.odds }}
-                            </div>
-                        </div>
-                    {% endfor %}
-                    </div>
-                    
-                </div>
-                <div>
-                    <p class="my-3"><strong>Home team, away team </strong>and <strong>odds</strong>
-                        must be entered for a match-line to be accepted</p>
-                    <p class="my-3"><strong>Odds</strong>must be entered in decimal format and must be at least 1.00</p>
-                </div>
-                <div class="mx-auto button-line">
-                <span class="button-line"><button id="submitAddBet" type="submit" class="btn btn-primary">Save Bet</button></span>
-                </div>
-            </div>
-   
-            </form>
-        </div>   
-        {% else %}
-        <p>Please log in to add a new bet </p>
-        
-        {% endif %}
-
-   
+        <div>
+            <p class="my-3"><strong>Home team, away team </strong>and <strong>odds </strong>
+                must be entered for a match-line to be accepted
+            </p>
+            <p class="my-3"><strong>Odds</strong>must be entered in decimal format and must be at least 1.00</p>
+        </div>
+        <div class="mx-auto button-line">
+            <span class="button-line"><button id="submitAddBet" type="submit" class="btn btn-primary">Save Bet</button></span>
+        </div>
+    </form>
+</div>
+{% else %}
+<p>Please log in to add a new bet </p>
+{% endif %}
 <!-- index.html content ends here -->
 {% endblock content %}

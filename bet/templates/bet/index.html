@@ -3,125 +3,132 @@
 {% block content %}
 <!-- content starts here -->
 <div class="container col-xxl-8 px-4 pt-5 pb-2">
-   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-     <div class="col-10 col-sm-8 col-lg-6">
-       <img src="{% static 'images/bet-hero-opt.webp' %}" class="d-block mx-lg-auto img-fluid" alt="Football match ero image" width="800" height="600" loading="lazy">
-     </div>
-     <div class="col-lg-6">
-       <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to Bet Tracker</h1>
-       <p class="lead">A site to track all of your football bets, while sharing and comparing your profitability with our community.</p>
-     </div> 
-   </div>
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{% static 'images/bet-hero-opt.webp' %}" class="d-block mx-lg-auto img-fluid" alt="Football match in action with crowd" 
+            width="800" height="600" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to Bet Tracker</h1>
+            <p class="lead">A site to track all of your football bets, while sharing and comparing your profitability with our community.</p>
+        </div>
+    </div>
 </div>
-  <div class="container">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <h2 class="text-center mb-4">How the Site Works</h2>
-            <p>As a registered user, you can share your football bets with others by adding them to the site. 
-            Once the match (or matches) have been played, simply update your bet with the results, and your fictional balance will be adjusted accordingly.</p>
-            <p>Bet Tracker keeps a detailed record of all your bets, allowing you to track your performance and see how successful (or not) your bets have been. 
-            Please note that Bet Tracker does not involve real money— all balances and amounts displayed are purely for informational purposes.</p>
-            
+            <p>As a registered user, you can share your football bets with others by adding them to the site.
+                Once the match (or matches) have been played, simply update your bet with the results, and your 
+                fictional balance will be adjusted 
+                accordingly.
+            </p>
+            <p>Bet Tracker keeps a detailed record of all your bets, allowing you to track your performance and see 
+                how successful (or not) your bets have been. 
+                Please note that Bet Tracker does not involve real money— all balances and amounts displayed are 
+                purely for informational purposes.
+            </p>
             <h2 class="text-center my-3">Guide to Tracking Your Bets</h2>
-            <p>As a registered user, you can create bets with up to six matches (or lines) in a single entry. Here's how to get started:</p>
+            <p>As a registered user, you can create bets with up to six matches (or lines) in a single entry. 
+                Here's how to get started:</p>
             <ol>
-                <li><strong>Add Your Bet:</strong> Enter the stake amount for the bet. For each match, add the two teams, your prediction, and the corresponding odds.</li>
-                <li><strong>Update Your Bet:</strong> Navigate to the "View Bets" page and click the update button next to your bet. Update the status of each match line, as well as the overall bet status. If your bet is a winner, enter the "Settled Amount" to reflect your winnings.</li>
+                <li><strong>Add Your Bet:</strong> Enter the stake amount for the bet. For each match, add the two 
+                    teams, your prediction, and the corresponding odds.</li>
+                <li><strong>Update Your Bet:</strong> Navigate to the "View Bets" page and click the update button 
+                    next to your bet. Update the status of each match line, as well as the overall bet status. If 
+                    your bet is a winner, enter the "Settled Amount" to reflect your winnings.</li>
             </ol>
             <p>With Bet Tracker, managing and reviewing your bets has never been easier!</p>
+        </div>
     </div>
-   </div>
- <div class="container py-4">
-  <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8">
-          <h2 class="text-center mb-4">Football Betting Guide</h2>
-
-          <p class="lead text-center">
-              Track your bets on football games with ease! Here's how it works:
-          </p>
-
-          <div class="card mb-4">
-              <div class="card-header info-card-header">
-                  <h5 class="mb-0">Bet Types</h5>
-              </div>
-              <div class="card-body">
-                  <ul>
-                      <li><strong>Home Win</strong>: Bet on the home team to win.</li>
-                      <li><strong>Away Win</strong>: Bet on the away team to win.</li>
-                      <li><strong>Draw</strong>: Bet on the match ending in a draw.</li>
-                  </ul>
-              </div>
-          </div>
-
-          <div class="card mb-4">
-              <div class="card-header info-card-header-rev">
-                  <h5 class="mb-0">Understanding Odds</h5>
-              </div>
-              <div class="card-body">
-                  <p>Odds are displayed in <strong>decimal format</strong> (e.g., 1.50, 2.25, 3.75).</p>
-                  <p>Decimal odds show how much you’ll receive for every unit staked, including your original stake.</p>
-                  <p><strong>Example</strong>: If odds are <strong>2.50</strong> and you bet £10, your return will be <strong>£25</strong>.</p>
-              </div>
-          </div>
-
-          <div class="card mb-4">
-              <div class="card-header info-card-header">
-                  <h5 class="mb-0">How Returns Are Calculated</h5>
-              </div>
-              <div class="card-body">
-                  <p>Your total return is calculated as:</p>
-                  <div class="text-center">
-                      <code>Return = Stake × Odds</code>
-                  </div>
-                  <p>To find your profit:</p>
-                  <div class="text-center">
-                      <code>Profit = Return - Stake</code>
-                  </div>
-              </div>
-          </div>
-
-          <div class="card mb-4">
-              <div class="card-header info-card-header-rev">
-                  <h5 class="mb-0">Example Bets</h5>
-              </div>
-              <div class="card-body">
-                  <ul>
-                      <li><strong>Bet on Home Win</strong>:
-                          <ul>
-                              <li>Odds: 1.80</li>
-                              <li>Stake: £10</li>
-                              <li>Return: £10 × 1.80 = <strong>£18</strong></li>
-                              <li>Profit: £18 - £10 = <strong>£8</strong></li>
-                          </ul>
-                      </li>
-                      <li><strong>Bet on Draw</strong>:
-                          <ul>
-                              <li>Odds: 3.25</li>
-                              <li>Stake: £10</li>
-                              <li>Return: £10 × 3.25 = <strong>£32.50</strong></li>
-                              <li>Profit: £32.50 - $10 = <strong>£22.50</strong></li>
-                          </ul>
-                      </li>
-                      <li><strong>Bet on Away Win</strong>:
-                          <ul>
-                              <li>Odds: 2.10</li>
-                              <li>Stake: $10</li>
-                              <li>Return: £10 × 2.10 = <strong>£21</strong></li>
-                              <li>Profit: £21 - $10 = <strong>£11</strong></li>
-                          </ul>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-
-          <div class="alert alert-light text-center" role="alert">
-              Odds will always be greater than <strong>1.00</strong>. Track all your bets and enjoy responsibly! 
-          </div>
-      </div>
-  </div>
 </div>
-
-
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <h2 class="text-center mb-4">Football Betting Guide</h2>
+            <p class="lead text-center">
+                Track your bets on football games with ease! Here's how it works:
+            </p>
+            <div class="card mb-4">
+                <div class="card-header info-card-header">
+                    <h5 class="mb-0">Bet Types</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Home Win</strong>: Bet on the home team to win.</li>
+                        <li><strong>Away Win</strong>: Bet on the away team to win.</li>
+                        <li><strong>Draw</strong>: Bet on the match ending in a draw.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header info-card-header-rev">
+                    <h5 class="mb-0">Understanding Odds</h5>
+                </div>
+                <div class="card-body">
+                    <p>Odds are displayed in <strong>decimal format</strong> (e.g., 1.50, 2.25, 3.75).</p>
+                    <p>Decimal odds show how much you will receive for every unit staked, including your original stake.</p>
+                    <p><strong>Example</strong>: If odds are <strong>2.50</strong> and you bet £10, your return 
+                        will be <strong>£25</strong>.</p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header info-card-header">
+                    <h5 class="mb-0">How Returns Are Calculated</h5>
+                </div>
+                <div class="card-body">
+                    <p>Your total return is calculated as:</p>
+                    <div class="text-center">
+                        <code>Return = Stake × Odds</code>
+                    </div>
+                    <p>To find your profit:</p>
+                    <div class="text-center">
+                        <code>Profit = Return - Stake</code>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header info-card-header-rev">
+                    <h5 class="mb-0">Example Bets</h5>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>
+                            <strong>Bet on Home Win</strong>:
+                            <ul>
+                                <li>Odds: 1.80</li>
+                                <li>Stake: £10</li>
+                                <li>Return: £10 × 1.80 = <strong>£18</strong></li>
+                                <li>Profit: £18 - £10 = <strong>£8</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Bet on Draw</strong>:
+                            <ul>
+                                <li>Odds: 3.25</li>
+                                <li>Stake: £10</li>
+                                <li>Return: £10 × 3.25 = <strong>£32.50</strong></li>
+                                <li>Profit: £32.50 - $10 = <strong>£22.50</strong></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Bet on Away Win</strong>:
+                            <ul>
+                                <li>Odds: 2.10</li>
+                                <li>Stake: $10</li>
+                                <li>Return: £10 × 2.10 = <strong>£21</strong></li>
+                                <li>Profit: £21 - $10 = <strong>£11</strong></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="alert alert-light text-center" role="alert">
+                Odds will always be greater than <strong>1.00</strong>. Track all your bets and enjoy responsibly! 
+            </div>
+        </div>
+    </div>
+</div>
 <!-- content ends here -->
 {% endblock content %}
 {% block additional %}
