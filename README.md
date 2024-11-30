@@ -47,23 +47,60 @@ THe money list page allows users to see the ranking of their account balance com
 
 ## Database structure
 
-<table>
-<thead>
-  <tr>
-    <th>Field Name</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
+### **User**
+
+| Field Name  | Field Type   | Key         |
+|-------------|--------------|-------------|
+| id          | Integer      | Primary Key |
+| username    | CharField    | -           |
+| email       | EmailField   | -           |
+
+---
+
+### **Bet**
+| Field Name      | Field Type    | Key            |
+|------------------|---------------|----------------|
+| id              | UUIDField     | Primary Key    |
+| punter          | ForeignKey    | Foreign Key (to User) |
+| created_on      | DateTimeField | -              |
+| updated_on      | DateTimeField | -              |
+| stake           | DecimalField  | -              |
+| status          | IntegerField  | -              |
+| settled_amount  | DecimalField  | -              |
+
+---
+
+### **Line**
+| Field Name     | Field Type    | Key            |
+|----------------|---------------|----------------|
+| id             | AutoField     | Primary Key    |
+| bet            | ForeignKey    | Foreign Key (to Bet) |
+| home_team      | CharField     | -              |
+| away_team      | CharField     | -              |
+| prediction     | IntegerField  | -              |
+| odds           | DecimalField  | -              |
+| match_result   | IntegerField  | -              |
+| status         | IntegerField  | -              |
+| created_on     | DateTimeField | -              |
+| updated_on     | DateTimeField | -              |
+
+---
+
+### **Bank**
+| Field Name  | Field Type    | Key            |
+|-------------|---------------|----------------|
+| id          | AutoField     | Primary Key
+
 
 ## Styling
+
+The website is designed with minimalist intent to keep the pages clean and with the important data clearly visible. 
+
+### Fonts
+I used Google fonts 
+
+### Colours
+
 
 ## Features
 

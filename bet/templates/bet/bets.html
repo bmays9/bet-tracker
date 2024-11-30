@@ -5,13 +5,18 @@
 <div class="container top-info-bar">
    <div class="row">
       <div class="col-6 col-md-8 col-lg-8 text-center my-3">
-         <a href="{% url 'bets' %}">Open Bets</a> | 
-         <a href="{% url 'settled_list' %}">Settled Bets</a></h1>
+         <a href="{% url 'bets' %}" 
+            {% if open_bets.0.status == 0 %} class="active-view"{% endif %}>Open Bets
+         </a> 
+         | 
+         <a href="{% url 'settled_list' %}" 
+            {% if open_bets.0.status != 0 %} class="active-view"{% endif %}>Settled Bets
+         </a>
       </div>
       <div class="col-6 col-md-4 col-lg-4 my-3 offset-md-3>
          <span class="money"> Balance:
-         {% if user_balance > 0 %}<span class="balance-green"
-         {% else %} <span class="balance-red"
+         {% if user_balance > 0 %}</span><span class="balance-green"
+         {% else %}</span><span class="balance-red"
          {% endif %}> £ {{ user_balance }}</span>
       </div>
    </div>
@@ -35,7 +40,11 @@
                         <span class="punter">{{ bet.punter }} </span>
                      </div>
                      <div class="col">
-                        <span class="stake">£{{ bet.stake }} {{ bet.line_count }}-fold </span>
+                        <span class="stake">£{{ bet.stake }} 
+                        <span class="line-count">
+                        {% if bet.line_count == 1 %} Single
+                        {% else %} {{ bet.line_count }}-fold </span>
+                        {% endif %}
                      </div>
                      <div class="col-2 text-end">
                         {% if bet.status == 0  %}
@@ -59,9 +68,18 @@
                   <li class="list-group-item bg-light">
                      <div class="row no-gutters line-details">
                         <div class="col">{{ line.home_team }} v {{ line.away_team }} </div>
-                        <div class="col">Prediction: {{ line.prediction}} </div>
+                        <div class="col">Prediction:
+                           {% if line.prediction == 1 %} Home
+                           {% elif line.prediction == 2 %} Away
+                           {% elif line.prediction == 3 %} Draw
+                           {% endif %} 
+                        </div>
                         <div class="col">Odds: {{ line.odds }} </div>
-                        <div class="col">{{ line.status }} </div>
+                        <div class="col 
+                        {% if line.status == 0 %} text-muted"><i class="fa-regular fa-circle"></i>
+                        {% elif line.status == 1 %} text-success"><i class="fa-solid fa-check"></i>
+                        {% elif line.status == -1 %} text-danger"><i class="fa-solid fa-xmark"></i>
+                        {% endif %} </div>
                      </div>
                      {% endfor %}
                </ul>
@@ -71,7 +89,7 @@
          <!-- Buttons / Actions -->
          <div class="row no-gutters panel-footer list-group">
             <div class="col">
-               {% if user.is_authenticated and bet.punter == user %}
+               {% if user.is_authenticated and bet.punter == user and bet.status == 0 %}
                <a href="{% url 'update_bet' bet.id %}" class="update-link">
                <button class="btn btn-edit btn-info btn-sm" bet_id="{{ bet.id }}">Update</button>
                </a>

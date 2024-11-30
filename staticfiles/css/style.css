@@ -6,6 +6,30 @@
 #000000 white
 */
 
+/* element styles */
+a {
+    text-decoration: none;
+}
+
+a:hover {
+  color: #fca311;
+}
+
+.active-view {
+    font-weight: bold;
+    color: #14213D; 
+    text-decoration: underline;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    padding-top: 66px;  
+}
+
+/* Header */
+
+
+
 .dark-bg {
     background-color: #14213D;
 }
@@ -15,30 +39,44 @@
     font-size: 1.6rem;
     font-weight: 800;
     color: #FCA311;
-
 }
 
+.info-card-header {
+    background-color: #14213D;
+    color: #FCA311;
+}
+
+.info-card-header-rev {
+    background-color: #FCA311;
+    color: #14213D;
+}
+
+.form-divider {
+    border: none; /* Removes the default browser styles */
+    border-top: 2px solid #14213D; /* Creates a horizontal line with your desired color and thickness */
+    margin: 20px 0; /* Adds small spacing above and below the line */
+}
+
+.line-count {
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+/* Footer */
 
 .footer {
     border-top: solid 3px #FCA311;
 }
 
-a {
-    text-decoration: none;
-}
+/* Body styles*/
 
-body {
-    font-family: Poppins, sans-serif;
-    padding-top: 66px;
-        
-}
-
-.row {
-    
+.top-info-bar {
+    margin-bottom: 10px;
 }
 
 .bet-box {
     background-color: #f5f5f5;
+    margin-bottom: 45px;
 }
 
 .punter {
@@ -50,6 +88,18 @@ body {
 .stake {
     font-size: 1.1rem;
     color: black;
+}
+
+.balance-red {
+    font-size: 1.1rem;
+    color: red;
+    font-weight:700
+}
+
+.balance-green {
+    font-size: 1.1rem;
+    color: green;
+    font-weight:700
 }
 
 .bet-header {

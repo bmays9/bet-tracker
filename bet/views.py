@@ -37,6 +37,7 @@ class OpenBets(ListView):
                 context['user_balance'] = 0.00  
         else:
             context['user_balance'] = ""
+
         return context
 
 class SettledBets(ListView):
@@ -65,6 +66,7 @@ class SettledBets(ListView):
                 context['user_balance'] = 0.00  
         else:
             context['user_balance'] = ""
+       
         return context
 
 

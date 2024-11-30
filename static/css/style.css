@@ -15,12 +15,20 @@ a:hover {
   color: #fca311;
 }
 
+.active-view {
+    font-weight: bold;
+    color: #14213D; 
+    text-decoration: underline;
+}
+
 body {
     font-family: Poppins, sans-serif;
     padding-top: 66px;  
 }
 
 /* Header */
+
+
 
 .dark-bg {
     background-color: #14213D;
@@ -47,6 +55,11 @@ body {
     border: none; /* Removes the default browser styles */
     border-top: 2px solid #14213D; /* Creates a horizontal line with your desired color and thickness */
     margin: 20px 0; /* Adds small spacing above and below the line */
+}
+
+.line-count {
+    padding-left: 10px;
+    font-size: 14px;
 }
 
 /* Footer */
