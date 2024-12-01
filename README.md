@@ -37,40 +37,40 @@ The MoSCoW Method of Prioritisation was used, classifying each User Story as a '
 
 ### Epics
 
-#1 As a superuser I want to add a bet via the admin page and view it on the site.
-#9 This Epic covers all the user stories required for the features associated with the Bet app functionality
-#17 Epic to cover all User Stories for the Bank App features
-#18 Epic to cover all user stories linked to account registration and login / logout process
+ - #1 As a superuser I want to add a bet via the admin page and view it on the site.
+ - #9 This Epic covers all the user stories required for the features associated with the Bet app functionality
+ - #17 Epic to cover all User Stories for the Bank App features
+ - #18 Epic to cover all user stories linked to account registration and login / logout process
 
 ### User Stories
 
 <details>
 <summary>List of User Stories</summary>
 
-#2 As a developer, I want to create a Django Project in the IDE, so that I have the framework for the Bet Tracker project
-#3 As a developer, I want to have a Bet app created in the Django project to facilitate the bet tracking element of the project
-#4 As a developer, I want to have a Bank app in the Django project to facilitate the money tracking and user ranking elements of the project
-#5 As a project, I want to be deployed to Heroku, so that I am available to all potential users.
-#6 As a developer, I want to set up and configure my database and Bet app models, so that data can be added via the admin page
-#7 As a superuser I want to have an admin page that is customised to the project, so that the data and admin functions are presented in an intelligent way
-#8 As a user, I want to view all open bets so that I can see what other users bets are upcoming
-#10 As a user, I want to have consistent styling across all pages so that the site is accessible and familiar
-#11 As a user, I want to view all settled bets so that I can review all previous betting activity
-#12 As a user, I want to add a bet to the site so that share with others and track my success
-#13 As a user, I want to edit my open bets so that update the result, status and make any necessary corrections
-#14 As a user, I want to delete an open bet so that the bet details are removed from the database
-#19 As a visitor, I want to register to the site so that i can use the site and track my bets
-#20 As a user, I want to login to the site so that I can make changes to my bets, and make new bets
-#21 As a user, I want to logout of the site so that my account is not logged in when i am not using the site
-#22 As a user, I want to **view all user bank amounts so that I can see where I rank in the community
-#23 As a user, I want to see information presented intelligently and cleanly on the site so that the site is easy to read
-#24 As a user, I want to see my account balance on the homepage so that i know how successful my bets are
-#25 As a user, I want to see the deployed project with intended styling so that I view the site as intended
-#26 As a user I want to add multiple lines to my new bet so that I can place accumulator bets on more than one match at a time.
-#27 As a tester, I want to automate tests to the bet form function so that i can ensure the functions work as expected
-#28 As a user, I want to track my betting account balance so that I can see how profitable my bets are
-#30 As a user, I want to view a home page that explains how to use the site so that a casual viewer unfamiliar with betting can use the site
-#31 As a user, I want to view a responsive and consistently styled site so that the user experience is a good one when using the site
+ - #2 As a developer, I want to create a Django Project in the IDE, so that I have the framework for the Bet Tracker project
+ - #3 As a developer, I want to have a Bet app created in the Django project to facilitate the bet tracking element of the project
+ - #4 As a developer, I want to have a Bank app in the Django project to facilitate the money tracking and user ranking elements of the project
+ - #5 As a project, I want to be deployed to Heroku, so that I am available to all potential users.
+ - #6 As a developer, I want to set up and configure my database and Bet app models, so that data can be added via the admin page
+ - #7 As a superuser I want to have an admin page that is customised to the project, so that the data and admin functions are presented in an intelligent way
+ - #8 As a user, I want to view all open bets so that I can see what other users bets are upcoming
+ - #10 As a user, I want to have consistent styling across all pages so that the site is accessible and familiar
+ - #11 As a user, I want to view all settled bets so that I can review all previous betting activity
+ - #12 As a user, I want to add a bet to the site so that share with others and track my success
+ - #13 As a user, I want to edit my open bets so that update the result, status and make any necessary corrections
+ - #14 As a user, I want to delete an open bet so that the bet details are removed from the database
+ - #19 As a visitor, I want to register to the site so that i can use the site and track my bets
+ - #20 As a user, I want to login to the site so that I can make changes to my bets, and make new bets
+ - #21 As a user, I want to logout of the site so that my account is not logged in when i am not using the site
+ - #22 As a user, I want to **view all user bank amounts so that I can see where I rank in the community
+ - #23 As a user, I want to see information presented intelligently and cleanly on the site so that the site is easy to read
+ - #24 As a user, I want to see my account balance on the homepage so that i know how successful my bets are
+ - #25 As a user, I want to see the deployed project with intended styling so that I view the site as intended
+ - #26 As a user I want to add multiple lines to my new bet so that I can place accumulator bets on more than one match at a time.
+ - #27 As a tester, I want to automate tests to the bet form function so that i can ensure the functions work as expected
+ - #28 As a user, I want to track my betting account balance so that I can see how profitable my bets are
+ - #30 As a user, I want to view a home page that explains how to use the site so that a casual viewer unfamiliar with betting can use the site
+ - #31 As a user, I want to view a responsive and consistently styled site so that the user experience is a good one when using the site
 </details>
 
 ## Wireframes
@@ -180,7 +180,7 @@ Poppins was chosen as the font for all other text as it is a sans-serif font tha
 
 I chose the colour pallete using the [Coolers](https://coolors.co/) . These colours work well together and give the site a modern and professional look. 
 
-![Database Relationship Disagram](documentation/db-schema.png)
+![Database Relationship Disagram](documentation/s-cooler.png)
 
 ## Features
 
@@ -195,9 +195,14 @@ At the right hand side of the header is a statement confirming the username of t
 
 <details>
 <summary>Click to view screenshots of Navigation</summary>
-![Navbar large screen](documentation/s-nav1.png)
+ 
+ - Large Screen
+ 
+ - ![Navbar large screen](documentation/s-nav1.png)
 
- ![Navbar mobile screen](documentation/s-nav2.png)
+ - Mobile Screen
+ 
+ - ![Navbar mobile screen](documentation/s-nav2.png)
 </details>
 
 **Footer**
@@ -206,7 +211,9 @@ The footer is styled in a minimalistic way to present the information clearly an
 
 <details>
 <summary>Click to view screenshots of the Footer</summary>
- ![Footer](documentation/s-foot.png)
+ - Footer
+ 
+ - ![Footer](documentation/s-foot.png)
 </details>
 
 
@@ -220,9 +227,16 @@ The page is fully responsive and is readable on both mobile devices and large sc
 
 <details>
 <summary>Click to view screenshots of the Home Page</summary>
- ![Home Page Top](documentation/s-home1.png)
- ![Guide to Tracking Bets](documentation/s-home2.png)
- ![Betting Guide](documentation/s-home3.png)
+- Home Top Page
+ 
+![Home Page Top](documentation/s-home1.png)
+- Guide to Tracking Bets
+
+![Guide to Tracking Bets](documentation/s-home2.png)
+
+- Betting Guide
+
+![Betting Guide](documentation/s-home3.png)
 </details>
 
 **Add A Bet**
@@ -250,6 +264,8 @@ The page is fully responsive and is readable on both mobile devices and large sc
 
 <details>
 <summary>Click to view screenshots of the Add Bet page</summary>
+Add a Bet Page
+ 
  ![Add a Bet Page](documentation/s-add.png)
 </details>
 
@@ -270,7 +286,9 @@ At the top of the page, the user's current bank balance is permanently displayed
 
 <details>
 <summary>Click to view screenshot of the View Open Bets page</summary>
- ![Open Bets Page](documentation/s-open.png)
+ - Open Bets Page
+ 
+  - ![Open Bets Page](documentation/s-open.png)
 </details>
 
 
@@ -283,7 +301,9 @@ The page is fully responsive and is readable on both mobile devices and large sc
 
 <details>
 <summary>Click to view screenshot of the View Settled Bets page</summary>
- ![Settled Bets Page](documentation/s-settled.png)
+ - Settled Bets Page
+ 
+ - ![Settled Bets Page](documentation/s-settled.png)
 </details>
 
 **Update Bet**
@@ -314,29 +334,42 @@ If the validation fails, both save buttons are disabled and text is displayed to
 
 <details>
 <summary>Click to view screenshots of the Update Bet page</summary>
-![Update Bet Page - Save Changes](documentation/s-update1.png)
+ - Update + Save Changes
  
-![Update Bet Page - Settle Bet](documentation/s-update2.png)
+ - ![Update Bet Page - Save Changes](documentation/s-update1.png)
+ 
+ - Update + Settle Bet
+   
+ - ![Update Bet Page - Settle Bet](documentation/s-update2.png)
+   
+ - Settle Bet Text
+   
+ - ![Update Bet Page - Settle Bet Text](documentation/s-update3.png)
 
-![Update Bet Page - Settle Bet Text](documentation/s-update3.png)
-
-![Update Bet Page - Buttons Disabled - Text instructions](documentation/s-update4.png)
-
-![Update Bet Page - Save confirmation Modal](documentation/s-update5.png)
+ - Buttons Disabled + Instruction
+   
+ - ![Update Bet Page - Buttons Disabled - Text instructions](documentation/s-update4.png)
+   
+ - Save changes confirmation Modal
+ 
+ - ![Update Bet Page - Save confirmation Modal](documentation/s-update5.png)
  
 </details>
 
 
 **Delete Bet**
+
 From the View Bets > Open Bets page, the user is able to delete any of their own bets. This feature is only available on open bets. 
 Once the bet is settled it can only be deleted by the site administator. This is to ensure the settled bets page records a full history of settled bets. 
 
 <details>
 <summary>Click to view screenshots of the Delete Bet Modal</summary>
+ 
 ![Delete Bet](documentation/s-delete.png)
 </details>
 
 **Money List**
+
 The money list page presents the user with an ordered list of all user's bank balances, ordered with the highest balance at the top.
 This view utilises the Bank App in the Django project.
 The leader at the top of the table is highted in green, and the user row is highlighted in blue (if not the leader).
@@ -344,6 +377,7 @@ Only users who have settled at least one bet will appear on this list.
 
 <details>
 <summary>Click to view screenshots of the Money List page</summary>
+ 
 ![Money List](documentation/s-money.png)
 </details>
 
@@ -358,32 +392,31 @@ Only users who have settled at least one bet will appear on this list.
 
 ### Libraries & Frameworks
 
-* [Django 3.2.18](https://www.djangoproject.com/) - Free and open source Python Web Framework
+* [Django 4.2.16](https://www.djangoproject.com/) - Free and open source Python Web Framework
 * [Gunicorn 20.1.0](https://gunicorn.org/) - A Python WSGI HTTP server compatible with Django and used to run the project on Heroku
-* [PostgreSQL 0.5.0](https://www.postgresql.org/) - A powerful, open-source object-relational database system
-* [Pyscopg2 2.9.5](https://www.psycopg.org/docs/) - A PostgreSQL database adapter for Python
-- [Heroku](https://www.heroku.com) - A cloud platform as a service
-- [SQLite3](https://docs.python.org/3/library/sqlite3.html) - The database provided by Django
+* PostgreSQL - An open-source object-relational database system
+* [Pyscopg2 2.9.10](https://www.psycopg.org/docs/) - A PostgreSQL database adapter for Python
+- [Heroku](https://www.heroku.com) - A cloud platform which hosts the website
+- [SQLite3](https://docs.python.org/3/library/sqlite3.html) - The database provided by Django, used in testing
 - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) - Integrated set of Django applications addressing authentication and registration
-- [Bootstrap 4.6.2]
+- [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+- Django Summernote 0.8.20.0 - For configuring and customising the administraion menu
+- Whitenoise 5.3.0 - for handling static files in deployment
 
 ### Tools
 
 - [GitPod](https://www.gitpod.io/) - Cloud development environment used
-- [GitHub](https://github.com/) - Cloud based git repository used
-- [W3C Validator](https://validator.w3.org/) - A validator which checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.
-- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) - A validator which checks the validity of CSS code
-- [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) - Highlights syntactical and stylistic problems in Python source code
+- [GitHub](https://github.com/) - Cloud based git repository used, for storing the code and for the Agile project management.
+- [W3C Validator](https://validator.w3.org/) - Used for HTML code validation
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used for CSS code validation
+- [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) - Used for Python code validation
 - [Chrome DevTools and Lighthouse](https://developer.chrome.com/docs/devtools/) - Web Developer Tools
-- [Autoprefixer CSS Online](https://autoprefixer.github.io/) - A PostCSS plugin which parses CSS and adds vendor prefixes 
-- [Am I responsive](https://ui.dev/amiresponsive) - For responsive visuals of the website
-- [CanIUse](https://caniuse.com/) - Browser support tables for modern web technologies
+- [Am I responsive](https://ui.dev/amiresponsive) - For responsive visuals of the website, used in this readme
 - TinyPNG(https://tinypng.com/) - Compresses images to reduce the file size
-- TinyURL(https://tinyurl.com/app/) - Shortens links
-- [Pexels](https://www.pexels.com/) - Stock Photos
+- [Pexels](https://www.pexels.com/) - Source of the image on the home page
 - [Google Fonts](https://fonts.google.com/) - Fonts
 - [Font Awesome](https://fontawesome.com/) - Icons
-- [Balsamiq](https://balsamiq.com/wireframes/) - Low Fidelity Wireframes
+- [Balsamiq](https://balsamiq.com/wireframes/) - Used to create Wireframes
 - [BrowserStack](https://www.browserstack.com/) - App and Browser Testing
 
 
@@ -435,17 +468,17 @@ All testing information is documented in TESTING.md
 
 To install the Django framework installed and deploy to Heroku I followed the Code institutes [Django Blog cheatsheet](docs/django-blog-cheatsheet.pdf)
 
-
 </details>
 
 ## Bugs
 
 Code Validation Bugs
 
+
 Homepage
 On the HTML page, the fonts were not loading correctly due to splitting the code across two lines. This was rectified during code validation phase.
 
-unclosed elements
+
 
 On View Bets Page, main issue was an unclosed span element within the line element that repeated for each bet.
 
