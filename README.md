@@ -1,8 +1,8 @@
 # Bet Tracker
 
-Bet Tracker is a full-stack, responsive website built for football supports who enjoy betting on matches. The site is for bet tracking purposes only and all monetary amounts on the site are for documentation purposes only. 
+Bet Tracker is a full-stack, responsive website built for football supports who enjoy betting on matches. The site is for bet tracking purposes and all monetary amounts on the site are for documentation purposes only. 
 <br>
-It provides users with the opportunity to share their upcoming bets with the website community, and see how their results fare against other like-minded bettors. 
+It provides users with the opportunity to share their upcoming bets with the community, and see how their results fare against other like-minded bettors. 
 
 ![Am I responsive image](documentation/amiresponsive.png)
 
@@ -402,139 +402,7 @@ Only users who have settled at least one bet will appear on this list.
 - Javascript
 - Python
 
-
 -----
-
-## Code Validation
-
-### HTML
-
-<details>
-<summary> Click to view HTML code validation results </summary>
-HTML code was tested using the [W3C Validator](https://validator.w3.org/) via text input.  The HTML code was copied and pasted in from each page of the website's source code.
-
-**index.html**
-Document checking completed. No errors or warnings to show.
-
-**View Bets**
-Open Bets View - Document checking completed. No errors or warnings to show.
-Settled Bets View - Document checking completed. No errors or warnings to show.
-
-**Add Bet**
-Document checking completed. No errors or warnings to show.
-
-**Update Bet**
-Document checking completed. No errors or warnings to show.
-
-**Money List**
-Document checking completed. No errors or warnings to show.
-
-</details>
-_____
-
-### CSS
-
-<details>
-<summary> Click to view CSS code validation results </summary>
-CSS code was tested using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) via text input. 
-
-**styles.css**
-No Error Found
-</details>
-_____
-
-### JavaScript
-
-<details>
-<summary>Click to view Javascript code validation results </summary>
- 
-JavaScript code was tested using [JSHint](https://jshint.com/)
-
-**deletebet.js**
-One error was observed. One undefined variable
-This error is expected due to cross referencing scripts and was therefore not eliminated.
-
-**editbet.js**
-Undefined variable error observed.
-This error is expected due to cross referencing scripts and was therefore not eliminated.
-</details>
-
-_____
-
-### Python
-The Python code was tested using [Code Institute's Python Linter](https://pep8ci.herokuapp.com/).
-
-<details>
-<summary>Click to view results for all Python file validation</summary>
-
-**root**
-
-* env.py
-
-All clear, no errors found
-
-**bettingtracker**
-
-* settings.py
-Lines exceeding 79 characters were cleared using `# noqa`. 
-These were values by the Django generated AUTH_PASSWORD_VALIDATORS and caused no issues being on a single line.
-All clear, no errors found
-
-* urls.py
-
-All clear, no errors found
-
-**Bet App**
-
-* admin.py
-
-All clear, no errors found
-
-* apps.py
-
-All clear, no errors found
-
-* forms.py
-
-All clear, no errors found
-
-* models.py
-
-All clear, no errors found
-
-* test_forms.py
-
-All clear, no errors found
-
-* urls.py
-
-All clear, no errors found
-
-* views.py
-
-All clear, no errors found
-
-**Bank App**
-
-* admin.py
-
-All clear, no errors found
-
-* apps.py
-
-All clear, no errors found
-
-* models.py
-
-All clear, no errors found
-
-* views.py
-
-All clear, no errors found
-
-
-</details>
-
 
 ### Libraries & Frameworks
 
@@ -617,11 +485,6 @@ To install the Django framework installed and deploy to Heroku I followed the Co
 </details>
 
 ----- 
-
-
-
-_____
-
 
 ## Bugs
 
