@@ -15,11 +15,13 @@ var updateBetInfo = document.getElementById("updateBetInfo");
  **/
 
 updateButton.addEventListener("click", (e) => {
-    updateConfModalElement.show();
+    const updateConfModal = new bootstrap.Modal(updateConfModalElement);
+    updateConfModal.show();
 });
 
 settleButton.addEventListener("click", (e) => {
-    settledBetModalElement.show();
+    const settledBetModal = new bootstrap.Modal(settledBetModalElement);
+    settledBetModal.show();
 });
 
 betStatusElement.addEventListener("change", (e) => {

@@ -73,23 +73,7 @@
         </div>
     </div>
 </div>
-<div class="modal" id="settledBetModal" tabindex="-1" data-showSettle="{% if success %}true{% else %}false{% endif %}"
- aria-labelledby="settledBetModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Settled Bet!</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Your bet has been settled and your balance has been updated. Close to return to the View Bets page</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 {% endblock content %}
 {% block additional %}
 <script src="{% static 'js/editbet.js' %}"></script>
