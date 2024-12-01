@@ -34,7 +34,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '8000-bmays9-bettracker-5530cl99lsj.ws.codeinstitute-ide.net',
     '.herokuapp.com'
-]
+    ]
 
 
 # Application definition
