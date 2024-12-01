@@ -4,14 +4,18 @@ Bet Tracker is a full-stack, responsive website built for football supports who 
 <br>
 It provides users with the opportunity to share their upcoming bets with the website community, and see how their results fare against other like-minded bettors. 
 
+![Am I responsive image](documentation/amiresponsive.png)
+
 View the live website [here](https://track-my-bets-1ee4e00d237a.herokuapp.com/)
 ____
+
+(Note, throughout this readme, the terms 'match' and 'line' are used interchangably. One bet can contain many matches or lines)
 
 ## Overview
 
 Bet Tracker is a responsive website compatible with all current major browsers. It is built for educational purposes using Bootstrap and the Django Framework. It consists of user authentication and permission logic, with full CRUD functionality on bets entered on the site. 
 
-The site is aimed at betting and football enthusiasts who want to add an extra element to their betting by sharing and comparing with others. Part of responsible gambling is to keep a track of all betting, successful or not, and this site helps to achieve this 
+The site is aimed at betting and football enthusiasts who want to add an extra element to their betting by sharing their bets with the community, and comparing their success too. Part of responsible gambling is to keep a track of all your bets, successful or not, and this site helps to achieve this. 
 
 ## User Expectations
 
@@ -32,13 +36,16 @@ Estimating the effort behind each user story was a challenge, so the workload of
 The MoSCoW Method of Prioritisation was used, classifying each User Story as a 'Must Have', 'Should Have' or 'Could Have'. All 'Must Have' stories were successfully completed, while there were some remaining user stories labelled 'Could Have' that were not implemented. These User Stories (#15, #16, #29) remain in the Optional list of tasks to be implemented in a future iteration. 
 
 ### Epics
+
 #1 As a superuser I want to add a bet via the admin page and view it on the site.
 #9 This Epic covers all the user stories required for the features associated with the Bet app functionality
 #17 Epic to cover all User Stories for the Bank App features
 #18 Epic to cover all user stories linked to account registration and login / logout process
 
-
 ### User Stories
+
+<details>
+<summary>List of User Stories</summary>
 
 #2 As a developer, I want to create a Django Project in the IDE, so that I have the framework for the Bet Tracker project
 #3 As a developer, I want to have a Bet app created in the Django project to facilitate the bet tracking element of the project
@@ -64,9 +71,20 @@ The MoSCoW Method of Prioritisation was used, classifying each User Story as a '
 #28 As a user, I want to track my betting account balance so that I can see how profitable my bets are
 #30 As a user, I want to view a home page that explains how to use the site so that a casual viewer unfamiliar with betting can use the site
 #31 As a user, I want to view a responsive and consistently styled site so that the user experience is a good one when using the site
+</details>
 
 ## Wireframes
 
+The idea of the website was to keep the data very clean and prseented to the user in a uniform design. Therefore the wireframes are very simplistic in line with the intended design.
+THe wireframe image of the Edit Bet page shows that the original intention was to display the match edit bet 
+<details>
+<summary>Wireframes</summary>
+
+![Home page](documentation/wf-home.png)
+
+![Open Bet List](documentation/wf-openbets.png)
+
+![Edit Bet](documentation/wf-edit.png)
 
 ## Website Structure
 
@@ -140,6 +158,13 @@ The administration pages all the site administrator a convenient and intuitive w
 | id          | AutoField     | Primary Key
 
 
+### Relationship Diagram
+
+<details>
+<summary>Click to view diagram</summary>
+![Database Relationship Disagram](documentation/db-schema.png)
+</details>
+
 ## Styling
 
 The website is designed with minimalist intent to keep the pages clean and with the important data clearly visible. 
@@ -151,8 +176,9 @@ Poppins was chosen as the font for all other text as it is a sans-serif font tha
 
 ### Colours
 
-I chose the colour pallete using the [Coolers](https://coolors.co/) to give the site a modern and professional look. 
+I chose the colour pallete using the [Coolers](https://coolors.co/) . These colours work well together and give the site a modern and professional look. 
 
+![Database Relationship Disagram](documentation/db-schema.png)
 
 ## Features
 
@@ -167,6 +193,9 @@ At the right hand side of the header is a statement confirming the username of t
 
 <details>
 <summary>Click to view screenshots of Navigation</summary>
+![Navbar large screen](documentation/s-nav1.png)
+
+ ![Navbar mobile screen](documentation/s-nav2.png)
 </details>
 
 **Footer**
@@ -175,7 +204,7 @@ The footer is styled in a minimalistic way to present the information clearly an
 
 <details>
 <summary>Click to view screenshots of the Footer</summary>
-</summary>
+ ![Footer](documentation/s-foot.png)
 </details>
 
 
@@ -184,6 +213,15 @@ The home page welcomes the user or visitor and explains the purpose of the websi
 A section for how to use the website is included, which details the process of adding a bet and updating a bet.
 For users or guest unfamiliar with betting, a short introductory guide offers them an explanation for how betting works, and what the terminology of the site means. 
 This information makes the site accessible to all visitors, whatever their betting experience and knowledge. 
+The home page also confirms to the user that all monetary amounts displayed on the site are purely fictional, and for information purposes only.
+The page is fully responsive and is readable on both mobile devices and large screens.
+
+<details>
+<summary>Click to view screenshots of the Home Page</summary>
+ ![Home Page Top](documentation/s-home1.png)
+ ![Guide to Tracking Bets](documentation/s-home2.png)
+ ![Betting Guide](documentation/s-home3.png)
+</details>
 
 **Add A Bet**
 One of the main reasons for visiting the site is to track the success of your own football bets, and this page is where the user is able to add their bets to the site. 
@@ -192,7 +230,7 @@ The details required for each line are:
  - Home Team: The team playing at home in the fixture
  - Away Team: The team playing away in the fixture
  - Your prediction: Choose from "Home" (Home team wins), "Away" (Away team wins), "Draw" (The teams draw)
- - Odds: The user enters the odds of their selection, taken from the betting site where they placed the bet.
+ - Odds: The user enters the odds of their selection, usually taken from the betting site where they actually placed the bet.
 
 By default, the match prediction of each line is set to "Home". 
 <b>Validation</b>
@@ -202,22 +240,49 @@ By default, the match prediction of each line is set to "Home".
  - Home Team, Away Team and Odds must all be valid, or all be empty for the bet to save.
 
 The "Save Bet" button is labelled clearly and is the only button on the page, so the user is guided with how to proceed.
-
 Once saved successfully, the betting form is cleared and a confirmation message is displayed to the user.
 
 I decided to allow bets with no lines to pass validation and be saved. This allows users the ability to update their betting balance (on the site) for any reason, without having to reference a football match.
 
+The page is fully responsive and is readable on both mobile devices and large screens.
+
+<details>
+<summary>Click to view screenshots of the Add Bet page</summary>
+ ![Add a Bet Page](documentation/s-add.png)
+</details>
+
 **View Bets**
 
-At the top of the page are links for the user to switch between two views. Open Bets and Settled Bets. Open bets 
+At the top of the page are two links for the user to switch between two views. Open Bets and Settled Bets. 
+Both pages are intentionally styled the same way so that while the list of bets and the information within changes, the page structure remains the same.
+The links are styled to remind the user which page they are viewing.
 
-All open bets are displayed on this page. This includes bets placed by the user, and other users on the site. The username of the bettor is distinctly displayed in the bet header. The bets are ordered by their modified date to keep the new additions and the newly modified as the most prominent at the top.
+Open Bets:
+All open bets are displayed on this page. This includes bets placed by the current user, and other users on the site. The username of the bettor is distinctly displayed in each bet header. The bets are ordered by their modified date to keep the new additions and the recently updated as the most prominent at the top.
 To keep the page from being too busy on the eye, I have implemented an accordion element for each bet so that the individual line detail can be hidden or displayed. The top five bets on the page are expanded by default - the rest are initially collapsed.
+Each open bet displays the 'pending' status as a reminder to the users that these bets are for future matches.
+Each individual match within the bet also has a status to reflect and display the success of each match prediction.
 
 From this 'open bets' page, a user is presented with two buttons for each of their bets - Update and Delete. This is part of the CRUD functionality solution to allow a user to update or delete their bets. 
 At the top of the page, the user's current bank balance is permanently displayed so there is no action for the user to search for it.
 
+<details>
+<summary>Click to view screenshot of the View Open Bets page</summary>
+ ![Open Bets Page](documentation/s-open.png)
+</details>
 
+
+Settled Bets:
+A bet moves from the open bets page to the settled bets page once it is saved / updated with a bet status that is no longer pending. 
+All settled bets are similarly displayed in a single page and display the status (Win Or Lose).
+Unlike the Open Bets view, the settled amount is displayed on this page as it is only relevant when the bet is settled. 
+
+The page is fully responsive and is readable on both mobile devices and large screens.
+
+<details>
+<summary>Click to view screenshot of the View Settled Bets page</summary>
+ ![Settled Bets Page](documentation/s-settled.png)
+</details>
 
 **Update Bet**
 
@@ -226,25 +291,59 @@ The Update Button is clearly visible on bets that the user has placed themselves
 If clicked, the user is presented with the Update Bet screen.
 Here the user can edit all fields associated with the bet. 
  - Stake: To correct an error with the stake previously entered.
- - Status: While the status is pending the bet remains open. The user will update the status to reflect whether the bet was a winner or loser after the matches have been played. If the status is not pending, the bet will be considered 'settled'.
+ - Status: While the status is pending the bet remains 'open'. The user will update the status to reflect whether the bet was a winner or loser after the matches have been played. When the status is not pending, the bet will be considered 'settled'.
   - For a winning bet, the settled amount should be greater than the stake.
   - For a losing bet, the settled amount should be less than the stake.
+  - For a bet where the settled amount is equal to the stake amount, 'Win' and 'Lose' are both valid statuses. 
  - Settled Amount: When the bet is settled, the user enters the amount that the bet returned. 
 
 The text at the bottom of the page is dynamic and responds to changes in the bet status field, informing the user what will happen when they save the changes.
+Javascript code controls which of the two buttons is enabled based on the status of the bet. I decided to implement two buttons to make it clear to the user that two different actions are possible from this screen:
+1. Save changes. Update bet but the bet remains open and further changes can be made.
+2. Settle & Close Bet. Save bet in the 'settled' status, where your balance will be updated and no more changes will be possible.
+
+Using two distinct buttons and informative text guides the user. Once clicked, a modal is displayed confirming to the user what action took place. The modal remains on the screen until the user closes it.
 
 Validation:
 There is Javascript validation to check the status of the bet correctly reflects the settled amount compared to the stake.
 - For a bet to win, the settled amount must not be lower than the stake amount
 - For a bet to lose, the settled amount must not be lower than the stake amount
+If the validation fails, both save buttons are disabled and text is displayed to the user to explain how to proceed.
+
+<details>
+<summary>Click to view screenshots of the Update Bet page</summary>
+![Update Bet Page - Save Changes](documentation/s-update1.png)
+ 
+![Update Bet Page - Settle Bet](documentation/s-update2.png)
+
+![Update Bet Page - Settle Bet Text](documentation/s-update3.png)
+
+![Update Bet Page - Buttons Disabled - Text instructions](documentation/s-update4.png)
+
+![Update Bet Page - Save confirmation Modal](documentation/s-update5.png)
+ 
+</details>
+
 
 **Delete Bet**
-From the View Bets > Open Bets page, the user is able to delete any of their own bets. This feature is only available on open bets. Once the bet is settled it can only be deleted by the site administator. This is to ensure the settled bets page records a full history of settled bets. 
+From the View Bets > Open Bets page, the user is able to delete any of their own bets. This feature is only available on open bets. 
+Once the bet is settled it can only be deleted by the site administator. This is to ensure the settled bets page records a full history of settled bets. 
+
+<details>
+<summary>Click to view screenshots of the Delete Bet Modal</summary>
+![Delete Bet](documentation/s-delete.png)
+</details>
 
 **Money List**
 The money list page presents the user with an ordered list of all user's bank balances, ordered with the highest balance at the top.
+This view utilises the Bank App in the Django project.
 The leader at the top of the table is highted in green, and the user row is highlighted in blue (if not the leader).
+Only users who have settled at least one bet will appear on this list.
 
+<details>
+<summary>Click to view screenshots of the Money List page</summary>
+![Money List](documentation/s-money.png)
+</details>
 
 ## Technologies Used
 
