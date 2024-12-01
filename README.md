@@ -85,6 +85,7 @@ THe wireframe image of the Edit Bet page shows that the original intention was t
 ![Open Bet List](documentation/wf-openbets.png)
 
 ![Edit Bet](documentation/wf-edit.png)
+</details>
 
 ## Website Structure
 
@@ -162,6 +163,7 @@ The administration pages all the site administrator a convenient and intuitive w
 
 <details>
 <summary>Click to view diagram</summary>
+ 
 ![Database Relationship Disagram](documentation/db-schema.png)
 </details>
 
@@ -384,8 +386,6 @@ Only users who have settled at least one bet will appear on this list.
 - [Balsamiq](https://balsamiq.com/wireframes/) - Low Fidelity Wireframes
 - [BrowserStack](https://www.browserstack.com/) - App and Browser Testing
 
-
-## Technologies
 
 ## Testing
 All testing information is documented in TESTING.md
