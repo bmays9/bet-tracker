@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<div class="container">
+    <h1>Oops! Error 500</h1>
+    <h2>Internal Server Error</h2>
+    <p>We are sorry, server is unable to display this page at the moment. Let's get you back on track:</p>
+    <p><a class="btn btn-primary" role="button" href="{% url 'home' %}">Take me back to the Home Page</a></p>
+</div>
+
+{% endblock content %}
