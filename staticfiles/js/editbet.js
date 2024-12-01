@@ -5,23 +5,17 @@ var betStatusElement = document.getElementById("id_status");
 var betStakeElement = document.getElementById("id_stake");
 var betSettledElement = document.getElementById("id_settled_amount");
 const updateConfModalElement = document.getElementById("updateConfModal");
-const settledBetModalElement = document.getElementById("settledBetModal");
 var settleBetWarning = document.getElementById("settleBetWarning");
 var updateBetInfo = document.getElementById("updateBetInfo");
 
 /**
  * Places event listeners on the save changes button 
- * and Settle & Close bet buttons
+ * and Close bet buttons
  **/
 
 updateButton.addEventListener("click", (e) => {
     const updateConfModal = new bootstrap.Modal(updateConfModalElement);
     updateConfModal.show();
-});
-
-settleButton.addEventListener("click", (e) => {
-    const settledBetModal = new bootstrap.Modal(settledBetModalElement);
-    settledBetModal.show();
 });
 
 betStatusElement.addEventListener("change", (e) => {
@@ -72,20 +66,6 @@ betStatusElement.addEventListener("change", (e) => {
 if (updateConfModalElement && updateConfModalElement.dataset.show === "true") {
     const successModal = new bootstrap.Modal(updateConfModalElement);
     successModal.show();
-
-    // Redirect when the user clicks the OK button
-    confirmRedirectButton.addEventListener("click", () => {
-        window.location.href = '/bets/';
-    });
-}
-
-/**
- * Show confirmation of settled bets Modal. Redirect user to the View Bets page
- */
-if (settledBetModalElement && settledBetModalElement.dataset.showSettle === "true") {
-    console.log("Save Success");
-    const settledModal = new bootstrap.Modal(settledBetModalElement);
-    settledModal.show();
 
     // Redirect when the user clicks the OK button
     confirmRedirectButton.addEventListener("click", () => {

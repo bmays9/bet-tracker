@@ -135,20 +135,6 @@ def delete_bet(request, id):
     return HttpResponseRedirect(reverse('bet_delete', args=[id]))
 
 
-#def settle_bet(request, id):
-#    '''
-#    Handles a request to settle a bet from the update bet page
-#    '''
-#    queryset = Bet.objects.filter(status=0)
-#    bet = get_object_or_404(queryset, id=id)
-#
-#    if bet.punter == request.user:
-#        bet.delete()
-#        return redirect('bets')
-#
-#    return HttpResponseRedirect(reverse('bet_delete', args=[id]))
-
-
 def update_bet(request, id):
     """
     Displays a bet with all lines details so that it can be edited or updated
@@ -190,8 +176,9 @@ def update_bet(request, id):
                     line_formset.save()
 
                     # Add a success message and redirect
-                    messages.success(request, 'Bet settled and balance updated successfully!')
-                    
+                    messages.success(
+                        request,
+                        'Bet settled and balance updated successfully!')
                     return redirect('bets')
 
                 else:
@@ -234,7 +221,6 @@ def update_bet(request, id):
             "edit_bet_form": edit_bet_form,
             "line_formset": line_formset,
             "line_count": line_count,
-
         })
 
 

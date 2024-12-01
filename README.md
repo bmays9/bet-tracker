@@ -324,7 +324,9 @@ Javascript code controls which of the two buttons is enabled based on the status
 1. Save changes. Update bet but the bet remains open and further changes can be made.
 2. Settle & Close Bet. Save bet in the 'settled' status, where your balance will be updated and no more changes will be possible.
 
-Using two distinct buttons and informative text guides the user. Once clicked, a modal is displayed confirming to the user what action took place. The modal remains on the screen until the user closes it.
+Using two distinct buttons and informative text guides the user. 
+ - If saving the bet with a pending status, a modal is displayed confirming to the user what action took place what page loads next. The modal remains on the screen until the user closes it.
+ - If the bet is settled, the user is redirected to the View Open Bets page and a message is displayed, confirming the action on the 'settled' bet.
 
 Validation:
 There is Javascript validation to check the status of the bet correctly reflects the settled amount compared to the stake.
@@ -459,7 +461,6 @@ All testing information is documented in TESTING.md
 
 ---
   
-
 ### Deploying to Heroku
 
 <details>
@@ -474,15 +475,113 @@ To install the Django framework installed and deploy to Heroku I followed the Co
 
 Code Validation Bugs
 
+<details>
+<summary>Click to view code validation errors and warnings</summary>
 
-Homepage
-On the HTML page, the fonts were not loading correctly due to splitting the code across two lines. This was rectified during code validation phase.
+**HTML** 
+
+- HTML index.html
+
+- ![Index](documentation/HTML-home-err.png)
+
+- HTML add_bet.html
+
+- ![Add Bet](documentation/HTML-addbet-err.png)
+
+- HTML update_bet.html
+
+- ![Update Bet](documentation/HTML-updatebet-err.png)
+
+- HTML bets.html
+
+- ![View Bets](documentation/HTML-viewbets-err.png)
+
+I was able to reformat and clean up the html code so that no errors were remaining.
+The most common errors were caused by not closing tag elements correctly.
+
+**Python**
+
+- models.py errors
+
+- ![models.py](documentation/Python-models-err.png)
+
+- forms.py errors
+
+- ![forms.py](documentation/Python-forms-err.png)
+
+- test_forms.py errors
+
+- ![test_forms.py](documentation/Python-testforms-err.png)
+
+- views.py errors
+
+- ![views.py](documentation/Python-views-err.png)
+
+</details>
+
+<details>
+<summary>Click to view bug details</summary>
+
+**Update Bet form loop error**
+When testing updating bet containing 6 lines I found that the page was not rendering correctly. The last two line details were formatted differently from the previous four.
+
+- ![HTML-updatebet-bug](documentation/HTML-updatebet-bug.png)
+
+I found the source of the error was in the way the html tags were not looping correctly
+within the crispy form code. The "card-body" class was outside of the for loop.
+
+- ![HTML-updatebet-code](documentation/HTML-updatebet-bugcode.png)
+
+- I was able to fix this by reordering the code as follows:
+
+- ![HTML-updatebet-code-fix](documentation/HTML-updatebet-bugcodefix.png)
+
+**New User Bank**
+I encountered an error when a new user settled their first bet. There was no bank object created for the new user so trying to adjust their balance created an error.
+
+This was resolved by adding some code in views.py to create a new instance of bank for the user if one did not already exist.
+
+**First Bank Adjustment**
+
+There was then an issue with the first settled bet when trying to adjust the new users balance. There was a type mismatch of decimal and float between the two fields:
+
+- ![Decimal Float error](documentation/bug-float.png)
+
+To fix this issue I added the conversion to Decimal of the initial 0.00 balance.
+
+- ![Bank Bugs fix](documentation/bug-bank.png)
 
 
+**Homepage**
+On the HTML page, the fonts were not loading correctly due to splitting the google font code across two lines. This was rectified during code validation phase.
 
-On View Bets Page, main issue was an unclosed span element within the line element that repeated for each bet.
-
-
-## References
 
 ## Credits
+
+I relied on the Code Institute "I Think Therefore I Blog" walkthrough from the CI LMS system. This provided the structure and support for the project.
+
+For form layouts I used the following to understand how to display formsets
+ - https://stackoverflow.com/questions/21754918/rendering-tabular-rows-with-formset-in-django-crispy-forms
+ - https://medium.com/@azzouzhamza13/django-crispy-forms-bootstrap5-00a1eb3ec3c7
+ - https://django-crispy-forms.readthedocs.io/en/latest/layouts.html
+
+To understand custom validators for my forms I used
+ - https://www.geeksforgeeks.org/custom-field-validations-in-django-models/
+
+For user messages I used:
+ https://stackoverflow.com/questions/2053258/how-do-i-output-html-in-a-message-in-the-new-django-messages-framework/10124845#10124845
+
+This was a help on various topics, particularly model relationships.
+https://simpleisbetterthancomplex.com/
+
+
+Bootstrap documentation was used a lot during the project:
+- https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
+For guidance on the readme structure I used:
+ - https://github.com/MoniPar/tailors_thimble/blob/main/README.md
+
+
+## Acknowledgements
+
+- I would like to thank my mentor Harry Dhillon for the help and encouragement for this project. Harry's positive feedback gave me the reassurance that, despite time pressure, the project was not as bad as I feared. 
