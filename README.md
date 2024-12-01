@@ -156,7 +156,11 @@ The administration pages all the site administrator a convenient and intuitive w
 
 | Field Name  | Field Type    | Key            |
 |-------------|---------------|----------------|
-| id          | AutoField     | Primary Key
+| id          | AutoField     | Primary Key    |
+| user        | ForeignKey    | Foreign Key (to User) |
+| updated_on  | DateTimeField | -              |
+| balance     | DecimalField  | -              |
+| is_active   | BooleanField  | -              |
 
 
 ### Relationship Diagram
@@ -166,6 +170,8 @@ The administration pages all the site administrator a convenient and intuitive w
  
 ![Database Relationship Disagram](documentation/db-schema.png)
 </details>
+
+-----
 
 ## Styling
 
@@ -180,7 +186,9 @@ Poppins was chosen as the font for all other text as it is a sans-serif font tha
 
 I chose the colour pallete using the [Coolers](https://coolors.co/) . These colours work well together and give the site a modern and professional look. 
 
-![Database Relationship Disagram](documentation/s-cooler.png)
+![Colour Scheme](documentation/s-cooler.png)
+
+-----
 
 ## Features
 
@@ -383,6 +391,8 @@ Only users who have settled at least one bet will appear on this list.
 ![Money List](documentation/s-money.png)
 </details>
 
+-----
+
 ## Technologies Used
 
 ### Languages
@@ -391,6 +401,140 @@ Only users who have settled at least one bet will appear on this list.
 - CSS
 - Javascript
 - Python
+
+
+-----
+
+## Code Validation
+
+### HTML
+
+<details>
+<summary> Click to view HTML code validation results </summary>
+HTML code was tested using the [W3C Validator](https://validator.w3.org/) via text input.  The HTML code was copied and pasted in from each page of the website's source code.
+
+**index.html**
+Document checking completed. No errors or warnings to show.
+
+**View Bets**
+Open Bets View - Document checking completed. No errors or warnings to show.
+Settled Bets View - Document checking completed. No errors or warnings to show.
+
+**Add Bet**
+Document checking completed. No errors or warnings to show.
+
+**Update Bet**
+Document checking completed. No errors or warnings to show.
+
+**Money List**
+Document checking completed. No errors or warnings to show.
+
+</details>
+_____
+
+### CSS
+
+<details>
+<summary> Click to view CSS code validation results </summary>
+CSS code was tested using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) via text input. 
+
+**styles.css**
+No Error Found
+</details>
+_____
+
+### JavaScript
+
+<details>
+<summary>Click to view Javascript code validation results </summary>
+ 
+JavaScript code was tested using [JSHint](https://jshint.com/)
+
+**deletebet.js**
+One error was observed. One undefined variable
+This error is expected due to cross referencing scripts and was therefore not eliminated.
+
+**editbet.js**
+Undefined variable error observed.
+This error is expected due to cross referencing scripts and was therefore not eliminated.
+</details>
+
+_____
+
+### Python
+The Python code was tested using [Code Institute's Python Linter](https://pep8ci.herokuapp.com/).
+
+<details>
+<summary>Click to view results for all Python file validation</summary>
+
+**root**
+
+* env.py
+
+All clear, no errors found
+
+**bettingtracker**
+
+* settings.py
+Lines exceeding 79 characters were cleared using `# noqa`. 
+These were values by the Django generated AUTH_PASSWORD_VALIDATORS and caused no issues being on a single line.
+All clear, no errors found
+
+* urls.py
+
+All clear, no errors found
+
+**Bet App**
+
+* admin.py
+
+All clear, no errors found
+
+* apps.py
+
+All clear, no errors found
+
+* forms.py
+
+All clear, no errors found
+
+* models.py
+
+All clear, no errors found
+
+* test_forms.py
+
+All clear, no errors found
+
+* urls.py
+
+All clear, no errors found
+
+* views.py
+
+All clear, no errors found
+
+**Bank App**
+
+* admin.py
+
+All clear, no errors found
+
+* apps.py
+
+All clear, no errors found
+
+* models.py
+
+All clear, no errors found
+
+* views.py
+
+All clear, no errors found
+
+
+</details>
+
 
 ### Libraries & Frameworks
 
@@ -414,16 +558,20 @@ Only users who have settled at least one bet will appear on this list.
 - [Code Institute's Python Linter](https://pep8ci.herokuapp.com/) - Used for Python code validation
 - [Chrome DevTools and Lighthouse](https://developer.chrome.com/docs/devtools/) - Web Developer Tools
 - [Am I responsive](https://ui.dev/amiresponsive) - For responsive visuals of the website, used in this readme
-- TinyPNG(https://tinypng.com/) - Compresses images to reduce the file size
+- [TinyPNG](https://tinypng.com/) - Used to compresses image to reduce the file size
 - [Pexels](https://www.pexels.com/) - Source of the image on the home page
 - [Google Fonts](https://fonts.google.com/) - Fonts
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [Balsamiq](https://balsamiq.com/wireframes/) - Used to create Wireframes
 - [BrowserStack](https://www.browserstack.com/) - App and Browser Testing
 
+-----
 
 ## Testing
+
 All testing information is documented in TESTING.md
+
+-----
 
 ## Deployment
 
@@ -458,18 +606,22 @@ All testing information is documented in TESTING.md
 4. Add database to the settings.py-file in Django.
 
 </details>
-
----
   
 ### Deploying to Heroku
 
 <details>
-
 <summary> Deploying to Heroku </summary>
 
 To install the Django framework installed and deploy to Heroku I followed the Code institutes [Django Blog cheatsheet](docs/django-blog-cheatsheet.pdf)
 
 </details>
+
+----- 
+
+
+
+_____
+
 
 ## Bugs
 
@@ -519,10 +671,12 @@ The most common errors were caused by not closing tag elements correctly.
 
 </details>
 
+
 <details>
 <summary>Click to view bug details</summary>
 
 **Update Bet form loop error**
+
 When testing updating bet containing 6 lines I found that the page was not rendering correctly. The last two line details were formatted differently from the previous four.
 
 - ![HTML-updatebet-bug](documentation/HTML-updatebet-bug.png)
@@ -534,9 +688,10 @@ within the crispy form code. The "card-body" class was outside of the for loop.
 
 - I was able to fix this by reordering the code as follows:
 
-- ![HTML-updatebet-code-fix](documentation/HTML-updatebet-bugcodefix.png)
+- ![HTML-updatebet-code-fix](documentation/HTML-updatebet-codefix.png)
 
 **New User Bank**
+
 I encountered an error when a new user settled their first bet. There was no bank object created for the new user so trying to adjust their balance created an error.
 
 This was resolved by adding some code in views.py to create a new instance of bank for the user if one did not already exist.
@@ -553,8 +708,13 @@ To fix this issue I added the conversion to Decimal of the initial 0.00 balance.
 
 
 **Homepage**
-On the HTML page, the fonts were not loading correctly due to splitting the google font code across two lines. This was rectified during code validation phase.
 
+On the HTML page, the fonts were not loading correctly due to splitting the google font code across two lines. This was rectified during code validation phase by 
+putting the href link onto a single line.
+
+</details>
+
+----- 
 
 ## Credits
 
@@ -565,15 +725,14 @@ For form layouts I used the following to understand how to display formsets
  - https://medium.com/@azzouzhamza13/django-crispy-forms-bootstrap5-00a1eb3ec3c7
  - https://django-crispy-forms.readthedocs.io/en/latest/layouts.html
 
-To understand custom validators for my forms I used
+To understand custom validators for my forms I used:
  - https://www.geeksforgeeks.org/custom-field-validations-in-django-models/
 
 For user messages I used:
- https://stackoverflow.com/questions/2053258/how-do-i-output-html-in-a-message-in-the-new-django-messages-framework/10124845#10124845
+ - https://stackoverflow.com/questions/2053258/how-do-i-output-html-in-a-message-in-the-new-django-messages-framework/10124845#10124845
 
-This was a help on various topics, particularly model relationships.
-https://simpleisbetterthancomplex.com/
-
+This was a help on various topics, particularly model relationships:
+ - https://simpleisbetterthancomplex.com/
 
 Bootstrap documentation was used a lot during the project:
 - https://getbootstrap.com/docs/5.3/getting-started/introduction/
@@ -581,6 +740,7 @@ Bootstrap documentation was used a lot during the project:
 For guidance on the readme structure I used:
  - https://github.com/MoniPar/tailors_thimble/blob/main/README.md
 
+-----
 
 ## Acknowledgements
 
