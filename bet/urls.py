@@ -7,5 +7,5 @@ urlpatterns = [
     path('delete/<uuid:id>', views.delete_bet, name='delete_bet'),
     path('settled/', views.SettledBets.as_view(), name='settled_list'),
     path('update/<uuid:id>/', views.update_bet, name='update_bet'),
-    path('', views.OpenBets.as_view(), name='bets'),    
+    path('', views.OpenBets.as_view(), name='bets'),
 ]
