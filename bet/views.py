@@ -130,6 +130,11 @@ def delete_bet(request, id):
 
     if bet.punter == request.user:
         bet.delete()
+        # Add a success message and redirect
+        messages.success(
+            request,
+            'SUCCESS! Your bet has been deleted')
+
         return redirect('bets')
 
     return HttpResponseRedirect(reverse('bet_delete', args=[id]))

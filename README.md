@@ -9,7 +9,7 @@ It provides users with the opportunity to share their upcoming bets with the com
 View the live website [here](https://track-my-bets-1ee4e00d237a.herokuapp.com/)
 ____
 
-(Note, throughout this readme, the terms 'match' and 'line' are used interchangably. One bet can contain many matches or lines)
+(Note, throughout this readme, the terms 'match' and 'line' are used interchangeably. One bet can contain many matches or lines)
 
 ## Overview
 
@@ -75,8 +75,8 @@ The MoSCoW Method of Prioritisation was used, classifying each User Story as a '
 
 ## Wireframes
 
-The idea of the website was to keep the data very clean and prseented to the user in a uniform design. Therefore the wireframes are very simplistic in line with the intended design.
-THe wireframe image of the Edit Bet page shows that the original intention was to display the match edit bet 
+The idea of the website was to keep the data very clean and presented to the user in a uniform design. Therefore, the wireframes are very simplistic in line with the intended design.
+The wireframe image of the Edit Bet page shows that the original intention was to display the match edit bet.
 <details>
 <summary>Wireframes</summary>
 
@@ -96,7 +96,7 @@ The homepage welcomes users to the site and gives them a clear overview of the s
 The View Bets page gives users a complete one-page view of all bets on the site. Bets are split into categories, "Open" and "Settled". Open bets are for upcoming matches and users are sharing their bets and predictions with each other. Users can gain insight and inspiration by knowing how other successful bettors are thinking about a certain match. The "Settled Bet" list is a historical record of all bets that have been settled.
 
 ### Add a Bet
-An logged in user can add a new bet to the site at any time. The site allows up to 6 matches (lines) to be combined into a single bet.
+A logged in user can add a new bet to the site at any time. The site allows up to 6 matches (lines) to be combined into a single bet.
 
 ### Update a Bet
 While a bet is still open, the user can edit all details of their bet. This can either be to correct a mistake, remove a cancelled fixture, or to enter the match result and update the bet status after the match(es) has been played.
@@ -105,7 +105,7 @@ While a bet is still open, the user can edit all details of their bet. This can 
 The money list page allows users to see the ranking of their account balance compared to other users on the site. 
 
 ## Administration
-The administration pages all the site administrator a convenient and intuitive way to manage the database, and in turn the datadisplayed on the site. The administrator can amend individual bets, lines, or user's bank balance and search for each on the site in an intelligent way.
+The administration pages all the site administrator a convenient and intuitive way to manage the database, and in turn the data displayed on the site. The administrator can amend individual bets, lines, or user's bank balance and search for each on the site in an intelligent way.
 
 ## Database structure
 
@@ -168,7 +168,7 @@ The administration pages all the site administrator a convenient and intuitive w
 <details>
 <summary>Click to view diagram</summary>
  
-![Database Relationship Disagram](documentation/db-schema.png)
+![Database Relationship Diagram](documentation/db-schema.png)
 </details>
 
 -----
@@ -184,7 +184,7 @@ Poppins was chosen as the font for all other text as it is a sans-serif font tha
 
 ### Colours
 
-I chose the colour pallete using the [Coolers](https://coolors.co/) . These colours work well together and give the site a modern and professional look. 
+I chose the colour palette using the [Coolers](https://coolors.co/) . These colours work well together and give the site a modern and professional look. 
 
 ![Colour Scheme](documentation/s-cooler.png)
 
@@ -199,7 +199,7 @@ The Navigation bar contains links to the "View Bets", "Add Bet", "Money List", "
 On smaller screens, the navigation bar condenses into a hamburger button, which when pressed, displays the navigation options vertically. 
 The links have an active class assigned to them, styling the active-page link differently so the user always knows where within the site they are.
 The links for "Registration", "Login" and "Logout are displayed dynamically and respond to the status of the current user. 
-At the right hand side of the header is a statement confirming the username of the user currently logged in. This is visible on every page to rassure the user they are both logged in, and under which account.
+At the right-hand side of the header is a statement confirming the username of the user currently logged in. This is visible on every page to reassure the user they are both logged in, and under which account.
 
 <details>
 <summary>Click to view screenshots of Navigation</summary>
@@ -316,7 +316,7 @@ The page is fully responsive and is readable on both mobile devices and large sc
 
 **Update Bet**
 
-From the View Bets page, the user is presented with all open bets on the site. The bets are displayed in a single list with no pagination. This allows the user to easily scroll though to find what they are looking for. 
+From the View Bets page, the user is presented with all open bets on the site. The bets are displayed in a single list with no pagination. This allows the user to easily scroll through to find what they are looking for. 
 The Update Button is clearly visible on bets that the user has placed themselves. 
 If clicked, the user is presented with the Update Bet screen.
 Here the user can edit all fields associated with the bet. 
@@ -370,7 +370,7 @@ If the validation fails, both save buttons are disabled and text is displayed to
 **Delete Bet**
 
 From the View Bets > Open Bets page, the user is able to delete any of their own bets. This feature is only available on open bets. 
-Once the bet is settled it can only be deleted by the site administator. This is to ensure the settled bets page records a full history of settled bets. 
+Once the bet is settled it can only be deleted by the site administrator. This is to ensure the settled bets page records a full history of settled bets. 
 
 <details>
 <summary>Click to view screenshots of the Delete Bet Modal</summary>
@@ -399,7 +399,7 @@ Only users who have settled at least one bet will appear on this list.
 
 - HTML5
 - CSS
-- Javascript
+- JavaScript
 - Python
 
 -----
@@ -414,7 +414,7 @@ Only users who have settled at least one bet will appear on this list.
 - [SQLite3](https://docs.python.org/3/library/sqlite3.html) - The database provided by Django, used in testing
 - [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) - Integrated set of Django applications addressing authentication and registration
 - [Bootstrap 5.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-- Django Summernote 0.8.20.0 - For configuring and customising the administraion menu
+- Django Summernote 0.8.20.0 - For configuring and customising the administration menu
 - Whitenoise 5.3.0 - for handling static files in deployment
 
 ### Tools
@@ -431,7 +431,6 @@ Only users who have settled at least one bet will appear on this list.
 - [Google Fonts](https://fonts.google.com/) - Fonts
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [Balsamiq](https://balsamiq.com/wireframes/) - Used to create Wireframes
-- [BrowserStack](https://www.browserstack.com/) - App and Browser Testing
 
 -----
 
@@ -572,8 +571,7 @@ To fix this issue I added the conversion to Decimal of the initial 0.00 balance.
 
 **Homepage**
 
-On the HTML page, the fonts were not loading correctly due to splitting the google font code across two lines. This was rectified during code validation phase by 
-putting the href link onto a single line.
+On the HTML page, the fonts were not loading correctly due to splitting the google font code across two lines. This was rectified during code validation phase by putting the href link onto a single line.
 
 </details>
 
