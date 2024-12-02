@@ -248,6 +248,7 @@ The page is fully responsive and is readable on both mobile devices and large sc
 </details>
 
 **Add A Bet**
+
 One of the main reasons for visiting the site is to track the success of your own football bets, and this page is where the user is able to add their bets to the site. 
 The page is intentionally kept very clean so that the important information is clearly visible and the user is not distracted. The user can add up to 6 matches (lines) in a single bet.
 The details required for each line are:
@@ -283,7 +284,7 @@ At the top of the page are two links for the user to switch between two views. O
 Both pages are intentionally styled the same way so that while the list of bets and the information within changes, the page structure remains the same.
 The links are styled to remind the user which page they are viewing.
 
-Open Bets:
+Open Bets:<br>
 All open bets are displayed on this page. This includes bets placed by the current user, and other users on the site. The username of the bettor is distinctly displayed in each bet header. The bets are ordered by their modified date to keep the new additions and the recently updated as the most prominent at the top.
 To keep the page from being too busy on the eye, I have implemented an accordion element for each bet so that the individual line detail can be hidden or displayed. The top five bets on the page are expanded by default - the rest are initially collapsed.
 Each open bet displays the 'pending' status as a reminder to the users that these bets are for future matches.
@@ -300,7 +301,7 @@ At the top of the page, the user's current bank balance is permanently displayed
 </details>
 
 
-Settled Bets:
+Settled Bets:<br>
 A bet moves from the open bets page to the settled bets page once it is saved / updated with a bet status that is no longer pending. 
 All settled bets are similarly displayed in a single page and display the status (Win Or Lose).
 Unlike the Open Bets view, the settled amount is displayed on this page as it is only relevant when the bet is settled. 
@@ -390,6 +391,13 @@ Only users who have settled at least one bet will appear on this list.
  
 ![Money List](documentation/s-money.png)
 </details>
+
+
+**Site Administration**
+
+The website has administration capabilities by logging in as a superuser to the [admin page](https://track-my-bets-1ee4e00d237a.herokuapp.com/admin/).
+Standard users of the site (those who register through the wensite) do not have access to these pages.
+The administration pages allow the website administrator to manage the database and presents them with a customised, intuitive interface for doing so.
 
 -----
 
