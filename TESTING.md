@@ -178,9 +178,10 @@ The live site was tested on a variety of devices and screen widths.
 ### Money List
  - Page is responsive. No text is obscured on small screens. 
 
-## Feature Testing
+_______
 
+## User Story and Feature Testing
 
+All tests are described in the following pdf document.
 
-## Homepage
- - Image loads 
+[User Story and Features Testing](documentation/user-story-and-features-testing.pdf)
