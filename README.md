@@ -328,7 +328,7 @@ Here the user can edit all fields associated with the bet.
  - Settled Amount: When the bet is settled, the user enters the amount that the bet returned. 
 
 The text at the bottom of the page is dynamic and responds to changes in the bet status field, informing the user what will happen when they save the changes.
-Javascript code controls which of the two buttons is enabled based on the status of the bet. I decided to implement two buttons to make it clear to the user that two different actions are possible from this screen:
+JavaScript code controls which of the two buttons is enabled based on the status of the bet. I decided to implement two buttons to make it clear to the user that two different actions are possible from this screen:
 1. Save changes. Update bet but the bet remains open and further changes can be made.
 2. Settle & Close Bet. Save bet in the 'settled' status, where your balance will be updated and no more changes will be possible.
 
@@ -337,7 +337,7 @@ Using two distinct buttons and informative text guides the user.
  - If the bet is settled, the user is redirected to the View Open Bets page and a message is displayed, confirming the action on the 'settled' bet.
 
 Validation:
-There is Javascript validation to check the status of the bet correctly reflects the settled amount compared to the stake.
+There is JavaScript validation to check the status of the bet correctly reflects the settled amount compared to the stake.
 - For a bet to win, the settled amount must not be lower than the stake amount
 - For a bet to lose, the settled amount must not be lower than the stake amount
 If the validation fails, both save buttons are disabled and text is displayed to the user to explain how to proceed.
@@ -581,7 +581,7 @@ On the HTML page, the fonts were not loading correctly due to splitting the goog
 
 I relied on the Code Institute "I Think Therefore I Blog" walkthrough from the CI LMS system. This provided the structure and support for the project.
 
-For form layouts I used the following to understand how to display formsets
+For form layouts I used the following to understand how to display formsets:
  - https://stackoverflow.com/questions/21754918/rendering-tabular-rows-with-formset-in-django-crispy-forms
  - https://medium.com/@azzouzhamza13/django-crispy-forms-bootstrap5-00a1eb3ec3c7
  - https://django-crispy-forms.readthedocs.io/en/latest/layouts.html
