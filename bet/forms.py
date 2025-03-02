@@ -46,11 +46,6 @@ class LineForm(forms.ModelForm):
             )
         )
 
-    def clean_odds(self):
-        odds = self.cleaned_data.get("odds")
-        if odds is None or odds < 1.00:
-            raise forms.ValidationError("Odds must be greater than 1.00")
-        return odds
 
 class EditBetForm(forms.ModelForm):
     class Meta:
