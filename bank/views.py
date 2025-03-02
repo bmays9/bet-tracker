@@ -11,6 +11,6 @@ class bank_list(ListView):
     Renders the Bank account rankings list page
     """
 
-    queryset = Bank.objects.all().order_by("-balance") 
+    queryset = Bank.objects.all().order_by("-balance")
     template_name = "bank/list.html"
     context_object_name = 'accounts'
