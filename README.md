@@ -477,18 +477,18 @@ All testing information is documented in TESTING.md
 
 ### Create the Heroku App
 
-1. Login to Heroku and click on the top right button ‘New’ on the dashboard. 
-2. Click ‘Create new app’.
+1. Login to Heroku and click on the top right button `New` on the dashboard. 
+2. Click `Create new app`.
 3. Give your app a unique name and select the region closest to you. 
-4. Click on the ‘Create app’ button.
+4. Click on the `Create app` button.
 
 ### Create the PostgreSQL Database
 
-1. Login to ElephantSQL and click on the top right button ‘Create New Instance’.
-2. Give your plan the name of the project and select the Tiny Turtle (Free) plan.  The ‘Tags’ field can be left empty.  
-3. Click on ‘Select Region’ and select a data centre near you and click ‘Review’.  
-4. Check the plan is correct and click ‘Create Instance’. 
-5. Return to the dashboard and click on the project instance. This will open up the “Details” page where the link to the URL is displayed.  This needs to be added to the env.py file in the project directory.
+1. Login to ElephantSQL and click on the top right button 'Create New Instance'.
+2. Give your plan the name of the project and select the Free plan.  The 'Tags' field can be left empty.  
+3. Click on 'Select Region' and select a data centre near you and click 'Review'.  
+4. Check the plan is correct and click 'Create Instance'.
+5. Return to the dashboard and click on the project instance. This will open up the 'Details' page where the link to the URL is displayed.  This needs to be added to the env.py file in the project directory.
 
 ### Create the env.py file
 
@@ -496,9 +496,9 @@ With the database created, it now needs to be connected to the project.  Certain
 
 1. Create a env.py file and add it to .gitignore.  
 2. At the top **import os** and set the DATABASE_URL variable using the `os.environ` method. Add the URL copied from instance created above to it. It should look like:
-`os.environ[“DATABASE_URL”] = ”copiedURL”`
+`os.environ['DATABASE_URL'] = 'copiedURL'`
 3. The Django application requires a SECRET_KEY to encrypt session cookies.  Set this variable to any string you like - the more complex the better.
-`os.environ[“SECRET_KEY”] = ”longSecretString”`
+`os.environ['SECRET_KEY'] = 'longSecretString'`
 
 ### Modify settings.py 
 
@@ -509,12 +509,12 @@ It is important to make the Django project aware of the env.py file and to conne
 import os
 import dj_database_url
 
-if os.path.isfile(‘env.py’):
+if os.path.isfile('env.py'):
     import env
 ```
 2. Remove the insecure secret key provided by Django and reference the variable set in the env.py file earlier, like so:
 ```
-SECRET_KEY = os.environ.get(‘SECRET_KEY’)
+SECRET_KEY = os.environ.get('SECRET_KEY')
 ```
 3. You can leave DEBUG as True or set it to `'DEVELOPMENT' in os.environ` and then add the following to the env.py file:
 ```
@@ -539,12 +539,12 @@ else:
 
 5. Save and migrate this database structure to the newly connected postgreSQL database.  Run the migrate command in your terminal
 `python3 manage.py migrate`
-6. To make sure the application is now connected to the remote database hosted on ElephantSQL, head over to your ElephantSQL dashboard and select the newly created database instance. Select the ‘Browser’ tab on the left and click on ‘Table queries’.  This displays a dropdown field with the database structure which has been populated from the Django migrations. 
+6. To make sure the application is now connected to the remote database hosted on ElephantSQL, head over to your ElephantSQL dashboard and select the newly created database instance. Select the 'Browser' tab on the left and click on 'Table queries'.  This displays a dropdown field with the database structure which has been populated from the Django migrations. 
 
 ### Connect the Database to Heroku
 
-1. Open up the Heroku dashboard, select the project’s app and click on the ‘Settings’ tab.
-2. Click on ‘Reveal Config Vars’ and add the DATABASE_URL with the value of the copied URL from the database instance created on ElephantSQL.
+1. Open up the Heroku dashboard, select the projectÂ’s app and click on the 'Settings' tab.
+2. Click on 'Reveal Config Vars' and add the DATABASE_URL with the value of the copied URL from the database instance created on ElephantSQL.
 3. Also add the SECRET_KEY with the value of the secret key added to the env.py file. 
 4. If using gitpod another key needs to be added in order for the deployment to succeed.  This is PORT with the value of 8000.
 
@@ -559,33 +559,33 @@ then scroll down to the TEMPLATES variable and add the following to the value of
 
 ### Add the Heroku Host Name
 
-In settings.py scroll to ALLOWED_HOSTS and add the Heroku host name.  This should be the Heroku app name created earlier followed by `.herokuapp.com`.  Add in `’localhost’` so that it can be run locally.
+In settings.py scroll to ALLOWED_HOSTS and add the Heroku host name.  This should be the Heroku app name created earlier followed by `.herokuapp.com`.  Add in `'localhost'` so that it can be run locally.
 ```
-ALLOWED_HOSTS = [‘heroku-app-name.herokuapp.com’, ‘localhost’]
+ALLOWED_HOSTS = ['heroku-app-name.herokuapp.com', 'localhost']
 ```
 
 ### Create the Directories and the Proc File
 
 1. Create the media, static and templates directories at the top level next to the manage.py file. 
-2. At the same level create a new file called ‘Procfile’ with a capital ‘P’.  This tells Heroku how to run this project.  
+2. At the same level create a new file called 'Procfile'.  This tells Heroku how to run this project.  
 3. Add the following code, including the name of your project directory. 
 ```
 web: gunicorn <project_name>.wsgi
 ```
-* ‘web’ tells Heroku that this a process that should accept HTTP traffic.
-* ‘gunicorn’ is the server used.
-* ‘wsgi’, stands for web services gateway interface and is a standard that allows Python services to integrate with web servers.
+* 'web' tells Heroku that this a process that should accept HTTP traffic.
+* 'gunicorn' is the server used.
+* 'wsgi', stands for web services gateway interface and is a standard that allows Python services to integrate with web servers.
 4. Save everything and push to GitHub. 
 
 ### Deployment
 
-1. Go back to the Heroku dashboard and click on the ‘Deploy’ tab.  
-2. For deployment method, select ‘GitHub’ and search for the project’s repository from the list. 
+1. Go back to the Heroku dashboard and click on the 'Deploy' tab.  
+2. For deployment method, select 'GitHub' and search for the project's repository from the list. 
 3. Select your repository, and then scroll down to 'Automatic Deploys'. 
 4. Click "Enable automatic deploys" or choose "Deploy branch" and manually deploy
 5. Click "Deploy branch"
 4. When the build log is complete it should say that the app has been successfully deployed.
-5. Click on the ‘Open App’ button to view the live version of the app. 
+5. Click on the 'Open App' button to view the live version of the app. 
 
 </details>
 
