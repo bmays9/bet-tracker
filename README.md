@@ -337,6 +337,8 @@ Using two distinct buttons and informative text guides the user.
  - If saving the bet with a pending status, a modal is displayed confirming to the user what action took place what page loads next. The modal remains on the screen until the user closes it.
  - If the bet is settled, the user is redirected to the View Open Bets page and a message is displayed, confirming the action on the 'settled' bet.
 
+Note: The Update Bet page is visible to any user using the correct URL, even bets they are not the owner of. This is not considered to be a problem as there is no confidential information contained within this page. It just contains the full bet details which players are already sharing. Unauthorised users are not able to make any changes to the bets they did not create, but having visibility of them is not a concern. 
+
 Validation:
 There is JavaScript validation to check the status of the bet correctly reflects the settled amount compared to the stake.
 - For a bet to win, the settled amount must not be lower than the stake amount
